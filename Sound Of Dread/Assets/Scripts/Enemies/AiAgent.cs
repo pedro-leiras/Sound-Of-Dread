@@ -8,6 +8,9 @@ public class AiAgent : MonoBehaviour{
     public Animator animator;
     public Transform playerTranform;
     public Transform[] points;
+
+    //onde vai começar a patrolhar
+    [HideInInspector]
     public int startingPoint = 0;
 
     [Header("Configs")]
@@ -25,9 +28,10 @@ public class AiAgent : MonoBehaviour{
         stateMachine = new AiStateMachine(this);
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
         //todos os estados sao registados aqui
-        stateMachine.RegisterState(new AiChasePlayerState());
-        stateMachine.RegisterState(new AiPatrolState());
+        stateMachine.RegisterState(new AiStateChasePlayer());
+        stateMachine.RegisterState(new AiStatePatrol());
         stateMachine.RegisterState(new AiStateAttack());
+        stateMachine.RegisterState(new AiStateIdle());
         //muda os estados conforme o pretendido
         stateMachine.ChangeState(initialState);
     }

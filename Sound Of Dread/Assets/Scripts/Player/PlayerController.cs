@@ -46,8 +46,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Health Parameters")]
     private int maxHealth = 100;
-    private int currentHealth;
-    private float regenDelay = 5f; // Time to wait for health regeneration
+    public int currentHealth;
+    public bool isDead; // se o player estiver morto = true o contrario = false
+    private float regenDelay = 8f; // Time to wait for health regeneration ** mudei a regen delay para 8 para que estivesse mais balanceado com o dano do inimigo
     private int regenAmount = 1;   // Health regeneration per second
     private float lastDamageTime;
 
@@ -68,6 +69,8 @@ public class PlayerController : MonoBehaviour
 
         currentHealth = maxHealth;
         playerCamera = GetComponentInChildren<Camera>();
+
+        isDead = false; // inicializar o player como vivo
     }
 
     private void FixedUpdate()

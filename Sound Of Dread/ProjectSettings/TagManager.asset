@@ -6,6 +6,7 @@ TagManager:
   tags:
   - door
   - Wall
+  - Wood Floor
   layers:
   - Default
   - TransparentFX

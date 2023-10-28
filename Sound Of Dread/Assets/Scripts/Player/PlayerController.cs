@@ -15,6 +15,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BottomLimit = 50f;
     [SerializeField] private float MouseSensitivity = 21.9f;
 
+    [Header("Footsteps")]
+    public List<AudioClip> woodFS;
+
+    enum FSMaterial
+    {
+        Wood, Empty
+    }
+
+    private AudioSource FSAudioSource;
 
     private Camera playerCamera;
     [Header("Import Parameters")]
@@ -61,7 +70,7 @@ public class PlayerController : MonoBehaviour
         _hasAnimator = TryGetComponent<Animator>(out _animator);
         _playerRigidbody = GetComponent<Rigidbody>();
         _inputManager = GetComponent<InputManager>();
-
+        FSAudioSource = GetComponent<AudioSource>();
 
         _xVelHash = Animator.StringToHash("X_Velocity");
         _yVelHash = Animator.StringToHash("Y_Velocity");
@@ -84,10 +93,12 @@ public class PlayerController : MonoBehaviour
             HandleHealth();
         }
     }
+
     private void LateUpdate()
     {
         CamMovements();
     }
+
     private void Move()
     {
         if (!_hasAnimator) return;
@@ -111,8 +122,6 @@ public class PlayerController : MonoBehaviour
         }
         if (_inputManager.Crouch) targetSpeed = 1.5f;
         if (_inputManager.Move == Vector2.zero) targetSpeed = 0;
-
-
 
 
 
@@ -179,4 +188,49 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private FSMaterial SurfaceSelect()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position + Vector3.up * 0.5f, -Vector3.up);
+        Material surfaceMaterial;
+
+        if (Physics.Raycast(ray, out hit, 1.0f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+        {
+            if(hit.collider.CompareTag("Wood Floor"))
+            {
+                return FSMaterial.Wood;
+            }
+        }
+
+        return FSMaterial.Empty;
+    }
+
+    private void PlayFootstep()
+    {
+        AudioClip clip = null;
+
+        FSMaterial surface = SurfaceSelect();
+
+        Debug.Log(surface);
+
+        switch(surface)
+        {
+            case FSMaterial.Wood:
+                clip = woodFS[UnityEngine.Random.Range(0, woodFS.Count)];
+                break;
+            case FSMaterial.Empty: 
+                break;
+            default:
+                break;
+        }
+
+        if(surface != FSMaterial.Empty)
+        {
+            FSAudioSource.clip = clip;
+
+            FSAudioSource.volume = UnityEngine.Random.Range(0.7f, 1f);
+            FSAudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            FSAudioSource.Play();
+        }
+    }
 }

@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         Move();
         HandleCrouch();
               
+        //Wait 5 seconds for player to regenerate
         if (Time.time - lastDamageTime >= regenDelay)
         {
             HandleHealth();
@@ -93,15 +94,18 @@ public class PlayerController : MonoBehaviour
         float targetSpeed = _inputManager.Run ? _runSpeed : _walkSpeed;
         if (currentStamina == 0)
         {
+            //set the speed default to walk
             targetSpeed = _walkSpeed;
         }
         if (targetSpeed == _runSpeed)
         {
+            //Depletion of stamina
             float staminaDepletion = staminaDepletionRate * Time.deltaTime * scaleFactor;
             currentStamina = Mathf.Max(0, currentStamina - staminaDepletion);
         }
         else
         {
+            //Regenerate stamina
             float staminaRegen = staminaRegenRate * Time.deltaTime * scaleFactor;
             currentStamina = Mathf.Min(maxStamina, currentStamina + staminaRegen);
         }
@@ -162,11 +166,12 @@ public class PlayerController : MonoBehaviour
         else if (currentHealth <= 0)
         {
             //Player morreu
-            }
+        }
     }
 
     public void HandleHealth()
     {
+        //Regenerate health
         if (currentHealth < maxHealth)
         {
             currentHealth += regenAmount;

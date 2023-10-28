@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 
     public float pickUpRange;
     private Animator animator;
-    private bool isLocked = false;
+    [SerializeField] private bool isLocked = false;
 
     private void Start()
     {

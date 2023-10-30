@@ -5,8 +5,12 @@ using UnityEngine;
 public class WaveController : MonoBehaviour
 {
     public GameObject WaveEffectPrefab;
-    public float duration = 10;
-    public float size = 500;
+    public float durationObject = 10;
+    public float sizeObject = 500;
+
+    public float durationFS = 10;
+    public float sizeFS = 500;
+    public SobelController sobelController;
 
     void Update()
     {
@@ -24,14 +28,41 @@ public class WaveController : MonoBehaviour
         if (waveEffectPS != null)
         {
             var main = waveEffectPS.main;
-            main.startLifetime = duration;
-            main.startSize = size;
+            main.startLifetime = durationObject;
+            main.startSize = sizeObject;
         }
         else
         {
             Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
         }
 
-        Destroy(waveEffect, duration + 1);
+        sobelController.EnableSobel();
+
+        Destroy(waveEffect, durationObject + 1);
+        Invoke("disableSobel", durationObject + 0.5f);
+    }
+
+    public void SpawnFootSteepsWaveEffect()
+    {
+        GameObject waveEffect = Instantiate(WaveEffectPrefab, transform.position, Quaternion.identity) as GameObject;
+        ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
+
+        if (waveEffectPS != null)
+        {
+            var main = waveEffectPS.main;
+            main.startLifetime = durationFS;
+            main.startSize = sizeFS;
+        }
+        else
+        {
+            Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
+        }
+
+        Destroy(waveEffect, durationFS + 1);
+    }
+
+    private void disableSobel()
+    {
+        sobelController.DisableSobel();
     }
 }

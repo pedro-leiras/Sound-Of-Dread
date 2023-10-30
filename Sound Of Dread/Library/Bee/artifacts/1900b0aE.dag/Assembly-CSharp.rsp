@@ -391,6 +391,7 @@
 "Assets/Scripts/Player/InputSystem/PlayerControlls.cs"
 "Assets/Scripts/Player/PickUpController.cs"
 "Assets/Scripts/Player/PlayerController.cs"
+"Assets/Scripts/SobelController.cs"
 "Assets/Scripts/WaveController.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0

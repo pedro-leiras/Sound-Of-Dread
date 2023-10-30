@@ -80,7 +80,6 @@ public class PickUpController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
         {
             collisionPos = collision.contacts[0].point;
-            Debug.Log("Objeto caiu em: " + collisionPos);
             waveController.SpawnWaveEffect(collisionPos);
         }
         

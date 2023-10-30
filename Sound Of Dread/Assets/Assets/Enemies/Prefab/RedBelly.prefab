@@ -140,6 +140,34 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &1364806872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6456797403266035019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d79faf45573d048be069dcec5ea9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialState: 1
+  navMeshAgent: {fileID: 0}
+  animator: {fileID: 0}
+  playerTranform: {fileID: 0}
+  player: {fileID: 0}
+  points: []
+  startingPoint: 0
+  transitionAnimation: -1203198838
+  agentSpeed: 0.8
+  agentStoppingDistance: 2.5
+  agentView: 10
+  timeForMonsterToStopLooking: 10
+  damage: 34
+  idleTimer: 6
+  patrolSpeed: 0.8
+  chaseSpeed: 1.2
 --- !u!195 &1364806873
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -162,28 +190,3 @@ NavMeshAgent:
   m_BaseOffset: -0.05882748
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1364806872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6456797403266035019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d79faf45573d048be069dcec5ea9c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialState: 1
-  navMeshAgent: {fileID: 0}
-  animator: {fileID: 0}
-  playerTranform: {fileID: 0}
-  player: {fileID: 0}
-  points: []
-  startingPoint: 0
-  transitionAnimation: -1203198838
-  agentSpeed: 0.5
-  agentStoppingDistance: 1.5
-  agentView: 5
-  timeForMonsterToStopLooking: 3
-  damage: 34

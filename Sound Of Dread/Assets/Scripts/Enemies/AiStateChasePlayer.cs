@@ -21,6 +21,7 @@ public class AiStateChasePlayer : AiState{
         wallTimer = 1.0f;
         // valor original do controlador para o ataque
         originalAnimationValue = 6.0f;
+        agent.agentSpeed = agent.chaseSpeed;
     }
 
     public void Exit(AiAgent agent){

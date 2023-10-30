@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AiStatePatrol : AiState{
     public int current; // waypoint em que se encontra
-    public float distanceThreshold = 1.0f; // distancia entre cada pointinho de waypoint para nao ficar preso
+    public float distanceThreshold = 0.0f; // distancia entre cada pointinho de waypoint para nao ficar preso
     private float originalAnimationValue;
 
     public AiStateId GetId(){
@@ -16,8 +16,10 @@ public class AiStatePatrol : AiState{
         // current toma valor do startingPoint que está. se no caso o enemy saiu do ponto 2 enquanto estava a patrulhar
         // para seguir o player ou para o que quer que seja ele volta a esse ponto para patrulhar
         current = agent.startingPoint;
+        distanceThreshold = agent.agentStoppingDistance;
         // valor original do controlador para o ataque
         originalAnimationValue = 4.0f;
+        agent.agentSpeed = agent.patrolSpeed;
     }
 
     public void Exit(AiAgent agent){

@@ -21,6 +21,9 @@ public class AiAgent : MonoBehaviour{
     [SerializeField] public float agentView = 10.0f;
     [SerializeField] public float timeForMonsterToStopLooking = 3.0f;
     [SerializeField] public int damage = 0;
+    [SerializeField] public float idleTimer = 0.0f;
+    [SerializeField] public float patrolSpeed = 0.0f;
+    [SerializeField] public float chaseSpeed = 0.0f;
 
     void Start(){
         navMeshAgent = GetComponent<NavMeshAgent>();

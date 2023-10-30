@@ -17,6 +17,8 @@ public class AiStateAttack : AiState{
         agent.transform.LookAt(agent.playerTranform.position);
         // valor original do controlador para o ataque
         originalAnimationValue = 8.0f;
+        // mantem a sua posicao enquanto ataca
+        agent.agentSpeed = 0.0f;
     }
 
     public void Exit(AiAgent agent){
@@ -52,8 +54,5 @@ public class AiStateAttack : AiState{
 
         // se o player estiver morto o enimigo volta a patrolhar para nao ficar a atacar no vacuo
         if(agent.player.isDead) agent.stateMachine.ChangeState(AiStateId.Patrol);
-
-        // mantem a sua posicao enquanto ataca
-        agent.navMeshAgent.destination = agent.transform.position;
     }
 }

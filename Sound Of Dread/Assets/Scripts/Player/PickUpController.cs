@@ -7,12 +7,14 @@ public class PickUpController : MonoBehaviour
     public Rigidbody rb;
     public BoxCollider coll;
     public Transform player, Container, fpsCam;
-
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
-
+  
     public bool equipped;
     public static bool slotFull;
+
+    public WaveController waveController;
+    private Vector3 collisionPos;
 
     private void Start()
     {
@@ -71,7 +73,16 @@ public class PickUpController : MonoBehaviour
 
         float random = Random.Range(-1f, 1f);
         rb.AddTorque(new Vector3(random, random, random) * 10);
+    }
 
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+        {
+            collisionPos = collision.contacts[0].point;
+            Debug.Log("Objeto caiu em: " + collisionPos);
+            waveController.SpawnWaveEffect(collisionPos);
+        }
+        
     }
 }

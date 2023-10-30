@@ -192,7 +192,6 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position + Vector3.up * 0.5f, -Vector3.up);
-        Material surfaceMaterial;
 
         if (Physics.Raycast(ray, out hit, 1.0f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
         {
@@ -210,8 +209,6 @@ public class PlayerController : MonoBehaviour
         AudioClip clip = null;
 
         FSMaterial surface = SurfaceSelect();
-
-        Debug.Log(surface);
 
         switch(surface)
         {

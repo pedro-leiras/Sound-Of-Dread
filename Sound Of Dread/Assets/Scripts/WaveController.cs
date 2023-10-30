@@ -12,13 +12,13 @@ public class WaveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
         {
-            SpawnWaveEffect();
+            SpawnWaveEffect(new Vector3(-1.13f, -6.57f, -8.9f));
         }
     }
 
-    void SpawnWaveEffect()
+    public void SpawnWaveEffect(Vector3 spawnPos)
     {
-        GameObject waveEffect = Instantiate(WaveEffectPrefab, new Vector3(-1.13f, -6.57f, -8.9f) /*alterar isto para valores recebidos por parametro*/, Quaternion.identity) as GameObject;
+        GameObject waveEffect = Instantiate(WaveEffectPrefab, spawnPos, Quaternion.identity) as GameObject;
         ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
 
         if (waveEffectPS != null)

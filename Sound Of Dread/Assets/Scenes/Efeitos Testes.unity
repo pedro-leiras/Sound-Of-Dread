@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
-  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -446,7 +445,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &330585545
 Camera:
   m_ObjectHideFlags: 0
@@ -538,22 +537,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &330585548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b91982c441b164b895368db55cab8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaveEffectPrefab: {fileID: 1490282753510958588, guid: 971629c35d84f914da8db0b3134524e6,
-    type: 3}
-  duration: 10
-  size: 200
 --- !u!4 &430911121 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435262, guid: ca9175a318b4a3248a4918476e9a6438,
@@ -578,7 +561,7 @@ GameObject:
   - component: {fileID: 672851834}
   - component: {fileID: 672851833}
   - component: {fileID: 672851832}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Parede (2)
   m_TagString: Wood Floor
   m_Icon: {fileID: 0}
@@ -830,7 +813,7 @@ GameObject:
   - component: {fileID: 821512694}
   m_Layer: 6
   m_Name: Parede
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1133,6 +1116,7 @@ MonoBehaviour:
   dropForwardForce: 5
   dropUpwardForce: 5
   equipped: 1
+  waveController: {fileID: 1943744154}
 --- !u!65 &1166053335
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1479,7 +1463,7 @@ GameObject:
   - component: {fileID: 1279911790}
   m_Layer: 7
   m_Name: Parede (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1840,6 +1824,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 165333768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943744154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943744144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b91982c441b164b895368db55cab8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveEffectPrefab: {fileID: 1490282753510958588, guid: 971629c35d84f914da8db0b3134524e6,
+    type: 3}
+  duration: 10
+  size: 200
 --- !u!1001 &7348799441706537376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,6 +1855,11 @@ PrefabInstance:
     - target: {fileID: 1490282753510958588, guid: 971629c35d84f914da8db0b3134524e6,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6762281967188363804, guid: 971629c35d84f914da8db0b3134524e6,
+        type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8670418388573190061, guid: 971629c35d84f914da8db0b3134524e6,

@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
 
 
 
+
     private void Awake() {
         HideCursor();
         _currentMap = PlayerInput.currentActionMap;
@@ -69,6 +70,13 @@ public class InputManager : MonoBehaviour
     }
     private void onCrouch(InputAction.CallbackContext context)
     {
+        /*foreach (DoorController door in doors)
+        {
+            
+            if (door.doorID == 1)
+                door.lockStatus = 0;
+            }
+        }*/
         Crouch = context.ReadValueAsButton();
     }
 

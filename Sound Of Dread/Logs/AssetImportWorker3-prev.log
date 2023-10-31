@@ -1,0 +1,416 @@
+Using pre-set license
+Built from '2021.3/evg/staging/82bb020e-b03b1330/draft-0' branch; Version is '2021.3.16f1 (4016570cf34f) revision 4200023'; Using compiler version '192829333'; Build Type 'Release'
+<<<<<<< Updated upstream
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'pt' Physical Memory: 16294 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\Programas\Unity\2021.3.16f1\Editor\Unity.exe
+=======
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'pt' Physical Memory: 16313 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Unity.exe
+>>>>>>> Stashed changes
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker3
+-projectPath
+<<<<<<< Updated upstream
+D:/Pedro Leiras/IPCA/EDJD 3ANO/S1/Sound-Of-Dread/Sound Of Dread
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+51017
+Successfully changed project path to: D:/Pedro Leiras/IPCA/EDJD 3ANO/S1/Sound-Of-Dread/Sound Of Dread
+D:/Pedro Leiras/IPCA/EDJD 3ANO/S1/Sound-Of-Dread/Sound Of Dread
+=======
+C:/Unity/Sound-Of-Dread/Sound Of Dread
+-logFile
+Logs/AssetImportWorker3.log
+-srvPort
+57962
+Successfully changed project path to: C:/Unity/Sound-Of-Dread/Sound Of Dread
+C:/Unity/Sound-Of-Dread/Sound Of Dread
+>>>>>>> Stashed changes
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+<<<<<<< Updated upstream
+Player connection [85064] Host "[IP] 192.168.1.68 [Port] 0 [Flags] 2 [Guid] 1941395181 [EditorId] 1941395181 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-RE9U5GT5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [85064] Host "[IP] 192.168.1.68 [Port] 0 [Flags] 2 [Guid] 1941395181 [EditorId] 1941395181 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-RE9U5GT5) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 151.48 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.16f1 (4016570cf34f)
+[Subsystems] Discovering subsystems at path D:/Programas/Unity/2021.3.16f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Pedro Leiras/IPCA/EDJD 3ANO/S1/Sound-Of-Dread/Sound Of Dread/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f91)
+    Vendor:   NVIDIA
+    VRAM:     3950 MB
+    Driver:   31.0.15.4592
+Initialize mono
+Mono path[0] = 'D:/Programas/Unity/2021.3.16f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Programas/Unity/2021.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Programas/Unity/2021.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56412
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Programas/Unity/2021.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003243 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 150.74 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.978 seconds
+Domain Reload Profiling:
+	ReloadAssembly (979ms)
+		BeginReloadAssembly (186ms)
+=======
+Player connection [21036] Host "[IP] 192.168.1.111 [Port] 0 [Flags] 2 [Guid] 4119286861 [EditorId] 4119286861 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-975UR4H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [21036] Host "[IP] 192.168.1.111 [Port] 0 [Flags] 2 [Guid] 4119286861 [EditorId] 4119286861 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-975UR4H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 137.10 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.16f1 (4016570cf34f)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Unity/Sound-Of-Dread/Sound Of Dread/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 (ID=0x1f02)
+    Vendor:   NVIDIA
+    VRAM:     8019 MB
+    Driver:   31.0.15.4584
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56216
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.16f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.013550 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 129.21 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.466 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1466ms)
+		BeginReloadAssembly (190ms)
+>>>>>>> Stashed changes
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+<<<<<<< Updated upstream
+		EndReloadAssembly (612ms)
+			LoadAssemblies (185ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (127ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (31ms)
+			SetupLoadedEditorAssemblies (396ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (151ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (178ms)
+				ProcessInitializeOnLoadMethodAttributes (59ms)
+=======
+		EndReloadAssembly (950ms)
+			LoadAssemblies (185ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (513ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (345ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (129ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (152ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+>>>>>>> Stashed changes
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+<<<<<<< Updated upstream
+Registered in 0.006404 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Pedro Leiras\IPCA\EDJD 3ANO\S1\Sound-Of-Dread\Sound Of Dread\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Pedro Leiras\IPCA\EDJD 3ANO\S1\Sound-Of-Dread\Sound Of Dread\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 146.32 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.860 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1861ms)
+		BeginReloadAssembly (120ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (1602ms)
+			LoadAssemblies (242ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (335ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (78ms)
+			SetupLoadedEditorAssemblies (896ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (146ms)
+				BeforeProcessingInitializeOnLoad (119ms)
+				ProcessInitializeOnLoadAttributes (464ms)
+				ProcessInitializeOnLoadMethodAttributes (158ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (11ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 2.23 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5908 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 57 unused Assets / (2.3 MB). Loaded Objects now: 6352.
+Memory consumption went from 242.3 MB to 240.0 MB.
+Total: 9.568900 ms (FindLiveObjects: 0.881900 ms CreateObjectMapping: 1.091500 ms MarkObjects: 6.158700 ms  DeleteObjects: 1.434900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1615428.155760 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Elevator_Open_01_stereo.wav
+  artifactKey: Guid(70bfb28c667f0f74184cdab59c53ea59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Elevator_Open_01_stereo.wav using Guid(70bfb28c667f0f74184cdab59c53ea59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e829a53049ab7a35509a9454d045e30a') in 0.168381 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Metal_Door_Locked_Try_Open_Slight_Gap_stereo.wav
+  artifactKey: Guid(e5c19d507c0c8a34cbe0f9d5801530c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Metal_Door_Locked_Try_Open_Slight_Gap_stereo.wav using Guid(e5c19d507c0c8a34cbe0f9d5801530c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '242bc2083f9e9fdd90deeed10eb896a8') in 0.020616 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_01_Mid_stereo.wav
+  artifactKey: Guid(89312c9c987ea3c4fb79fc82518bd6c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_01_Mid_stereo.wav using Guid(89312c9c987ea3c4fb79fc82518bd6c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca389d3a25f2228a969ef49d9e949cb4') in 0.016188 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_03_Dark_stereo.wav
+  artifactKey: Guid(286f4f1eedabfce4cb938ac73922b521) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_03_Dark_stereo.wav using Guid(286f4f1eedabfce4cb938ac73922b521) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4227f12e14e3808e127580892a42ca8') in 0.018956 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Freezer_Close_01_mono.wav
+  artifactKey: Guid(7adbf7de7f55fcd47a0e4f4ec934dbb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Freezer_Close_01_mono.wav using Guid(7adbf7de7f55fcd47a0e4f4ec934dbb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c1ba6f8688cdfef604b548f79df638') in 0.015311 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Sci-Fi_Heavy_Metal_Close_stereo.wav
+  artifactKey: Guid(f11b3a6cbe9ab824cba2561300953fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Sci-Fi_Heavy_Metal_Close_stereo.wav using Guid(f11b3a6cbe9ab824cba2561300953fb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '320f11c7a18c73d9201b7bc444e34b1b') in 0.017180 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Indoor_Wood_Close_Gentle_stereo.wav
+  artifactKey: Guid(8fbdb285cdc44384db52837a466b281a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Indoor_Wood_Close_Gentle_stereo.wav using Guid(8fbdb285cdc44384db52837a466b281a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd65d41a1d912f13a8efb19da38dec610') in 0.015484 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Wood_Kitchen_Cabinet_Close_04_mono.wav
+  artifactKey: Guid(5ff07707f6c51cc448f9a44cf4e35248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Wood_Kitchen_Cabinet_Close_04_mono.wav using Guid(5ff07707f6c51cc448f9a44cf4e35248) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5ab96842d604e6096e5d04b413776c9') in 0.017831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Metal_Glass_Close_stereo.wav
+  artifactKey: Guid(9fdbb5e732f8e6346adcf9c7c041299f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Metal_Glass_Close_stereo.wav using Guid(9fdbb5e732f8e6346adcf9c7c041299f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8234bd16c8dce09305e60cc86aa0667') in 0.027035 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Sci-Fi_Large_Slam_Reverb_stereo.wav
+  artifactKey: Guid(39bd482e4fec1fa4fb8703ccb44b0019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Sci-Fi_Large_Slam_Reverb_stereo.wav using Guid(39bd482e4fec1fa4fb8703ccb44b0019) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d5d1698513b093654d13d792dd53650') in 0.020921 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Wood_Kitchen_Cabinet_Close_01_mono.wav
+  artifactKey: Guid(8e01ac8e52f016a48b0726931abaa5b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DOOR_Wood_Kitchen_Cabinet_Close_01_mono.wav using Guid(8e01ac8e52f016a48b0726931abaa5b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13c2f9e71405c8b91127f6da4f4d5249') in 0.017791 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_02_Mid_stereo.wav
+  artifactKey: Guid(95d74835228e7e5458f49f2e4f564e8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/GATE_Metal_Close_02_Mid_stereo.wav using Guid(95d74835228e7e5458f49f2e4f564e8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ea3cc687ab16e2601272cba03a8faef') in 0.018700 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DRAWER_Wood_Kitchen_Open_03_mono.wav
+  artifactKey: Guid(443ada043c945154187f4dc510ede51b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DRAWER_Wood_Kitchen_Open_03_mono.wav using Guid(443ada043c945154187f4dc510ede51b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cfd77e6b3f847896d33369bfae4e7ba') in 0.018272 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DRAWER_Wood_Kitchen_Close_02_mono.wav
+  artifactKey: Guid(6f2fc209bc54a6646a1a9d3849d53c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/DOORS_GATES_DRAWERS/DRAWER_Wood_Kitchen_Close_02_mono.wav using Guid(6f2fc209bc54a6646a1a9d3849d53c97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e0c5d9860dc0d2104b44f0e3638b36f') in 0.016388 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.943023 seconds.
+  path: Assets/Universal Sound FX/LIGHTS/LIGHT_Button_Fluorescent_02_On_mono.wav
+  artifactKey: Guid(26c0f50e1b02c474a89cea1ea0dcc60c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/LIGHTS/LIGHT_Button_Fluorescent_02_On_mono.wav using Guid(26c0f50e1b02c474a89cea1ea0dcc60c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12d446a3abc5bdb767f587a8dcc7e10c') in 0.015075 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.775943 seconds.
+  path: Assets/Universal Sound FX/ELECTRICITY/ELECTRICITY_Subtle_loop_mono.wav
+  artifactKey: Guid(c70f02290a95e434c944cc5aa45ed337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/ELECTRICITY/ELECTRICITY_Subtle_loop_mono.wav using Guid(c70f02290a95e434c944cc5aa45ed337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0c0ce3fc35e5321a889fd580f4ec06f') in 0.015817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.121944 seconds.
+  path: Assets/Universal Sound FX/TOYS/TOY_Hand_Horn_Single_02_mono.wav
+  artifactKey: Guid(bc992a6adc38edb48bb1e67928564a65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/TOYS/TOY_Hand_Horn_Single_02_mono.wav using Guid(bc992a6adc38edb48bb1e67928564a65) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55bdd2f3d77ead82da63eb53f7311dca') in 0.016698 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.191389 seconds.
+  path: Assets/Universal Sound FX/TOOLS/Impact_Wrench/TOOL_Impact_Wrench_Comperssed_Air_Segment_03_stereo.wav
+  artifactKey: Guid(f214d79579713984394f900233f81f32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/TOOLS/Impact_Wrench/TOOL_Impact_Wrench_Comperssed_Air_Segment_03_stereo.wav using Guid(f214d79579713984394f900233f81f32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f929410d868ce961727b39563914a74') in 0.019894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000063 seconds.
+  path: Assets/Universal Sound FX/TOOLS/Impact_Wrench/TOOL_Impact_Wrench_Comperssed_Air_Short_Burst_No_Resistance_02_stereo.wav
+  artifactKey: Guid(b05fa737e07a31d43a4cf0b98f4876d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/TOOLS/Impact_Wrench/TOOL_Impact_Wrench_Comperssed_Air_Short_Burst_No_Resistance_02_stereo.wav using Guid(b05fa737e07a31d43a4cf0b98f4876d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf852e23356acc096eb7617765f053a3') in 0.031634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.853833 seconds.
+  path: Assets/Universal Sound FX/TOOLS/Spade/SPADE_Scrape_Asphalt_RR4_mono.wav
+  artifactKey: Guid(d2ab716c1334c244181768ba588f19d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Universal Sound FX/TOOLS/Spade/SPADE_Scrape_Asphalt_RR4_mono.wav using Guid(d2ab716c1334c244181768ba588f19d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ea8604cb5b2281652e6c94003c53edf') in 0.018931 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006222 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image D:\Pedro Leiras\IPCA\EDJD 3ANO\S1\Sound-Of-Dread\Sound Of Dread\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image D:\Pedro Leiras\IPCA\EDJD 3ANO\S1\Sound-Of-Dread\Sound Of Dread\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.472 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1473ms)
+		BeginReloadAssembly (173ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (53ms)
+		EndReloadAssembly (1192ms)
+			LoadAssemblies (104ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (308ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (625ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (102ms)
+				ProcessInitializeOnLoadAttributes (401ms)
+				ProcessInitializeOnLoadMethodAttributes (103ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (33ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 2.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5741 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (2.3 MB). Loaded Objects now: 6371.
+Memory consumption went from 234.6 MB to 232.3 MB.
+Total: 5.944500 ms (FindLiveObjects: 0.690000 ms CreateObjectMapping: 0.590900 ms MarkObjects: 3.977300 ms  DeleteObjects: 0.684900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+=======
+Registered in 0.014844 seconds.
+>>>>>>> Stashed changes

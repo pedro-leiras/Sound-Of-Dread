@@ -3,7 +3,7 @@
 */
 using UnityEngine;
 
-public class AiIdleState : AiState{
+public class AiStateIdle : AiState{
     private float originalAnimationValue;
     private float timer;
 
@@ -19,6 +19,7 @@ public class AiIdleState : AiState{
         timer = 0.0f;
         // enemy fica parado no sitio
         agent.agentSpeed = 0.0f;
+        Debug.Log("State Idle");
     }
 
     public void Exit(AiAgent agent){
@@ -33,5 +34,11 @@ public class AiIdleState : AiState{
         // se a distancia entre o jogador e o enemy for a que ele consegue ver entao segue o player 
         if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) < agent.agentView)
             agent.stateMachine.ChangeState(AiStateId.ChasePlayer);
+
+        // distancia do objecto entre a posicao do enemy e a colisao do objecto
+        if (agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown){
+            agent.stateMachine.ChangeState(AiStateId.ChaseSound);
+            Debug.Log("object pos: " + agent.puc.collisionPos);
+        }
     }
 }

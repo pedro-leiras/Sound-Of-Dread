@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - Wood Floor
   - lever
+  - Object
+  - Enemy
   layers:
   - Default
   - TransparentFX

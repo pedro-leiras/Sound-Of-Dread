@@ -3186,7 +3186,7 @@ GameObject:
   - component: {fileID: 1166053333}
   m_Layer: 6
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3291,6 +3291,8 @@ MonoBehaviour:
   dropUpwardForce: 5
   equipped: 1
   waveController: {fileID: 1943744154}
+  collisionPos: {x: 0, y: 0, z: 0}
+  isThrown: 0
 --- !u!54 &1166053333
 Rigidbody:
   m_ObjectHideFlags: 0

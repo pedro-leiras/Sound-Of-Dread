@@ -92,6 +92,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedBelly
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 951320abb554d824b90c9b6586b94f8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 951320abb554d824b90c9b6586b94f8f,
         type: 3}
       propertyPath: m_Controller
@@ -158,16 +163,19 @@ MonoBehaviour:
   playerTranform: {fileID: 0}
   player: {fileID: 0}
   points: []
+  agentCollider: {fileID: 0}
   startingPoint: 0
   transitionAnimation: -1203198838
+  puc: {fileID: 0}
   agentSpeed: 0.8
-  agentStoppingDistance: 2.5
+  agentStoppingDistance: 2
   agentView: 10
   timeForMonsterToStopLooking: 10
   damage: 34
   idleTimer: 6
   patrolSpeed: 0.8
   chaseSpeed: 1.2
+  listeningArea: 100
 --- !u!195 &1364806873
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -187,6 +195,6 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.85
-  m_BaseOffset: -0.05882748
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

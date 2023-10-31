@@ -6,7 +6,8 @@ public enum AiStateId{
     ChasePlayer, //seguir player
     Idle, //idle estado normal
     Attack, //atacar player
-    Patrol
+    Patrol,
+    ChaseSound //seguir o som
 }
 
 public interface AiState{

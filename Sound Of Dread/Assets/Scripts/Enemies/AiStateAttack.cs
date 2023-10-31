@@ -18,7 +18,8 @@ public class AiStateAttack : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 8.0f;
         // mantem a sua posicao enquanto ataca
-        agent.agentSpeed = 0.0f;
+        agent.agentSpeed = 0.0f; 
+        Debug.Log("State Attack");
     }
 
     public void Exit(AiAgent agent){

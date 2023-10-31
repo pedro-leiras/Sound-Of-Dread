@@ -20,6 +20,7 @@ public class AiStatePatrol : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 4.0f;
         agent.agentSpeed = agent.patrolSpeed;
+        Debug.Log("State Patrol");
     }
 
     public void Exit(AiAgent agent){
@@ -27,8 +28,7 @@ public class AiStatePatrol : AiState{
         agent.startingPoint = current;
     }
 
-    public void Update(AiAgent agent)
-    {
+    public void Update(AiAgent agent){
         // calculos para a animacao do enimigo ser mais smooth
         float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
         float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);
@@ -51,5 +51,9 @@ public class AiStatePatrol : AiState{
         // se a distancia entre o jogador e o enemy for a que ele consegue atacar entao ataca o player 
         if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) < agent.agentStoppingDistance && !agent.player.isDead)
             agent.stateMachine.ChangeState(AiStateId.Attack);
+
+        // distancia do objecto entre a posicao do enemy e a colisao do objecto
+        if (agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown)
+            agent.stateMachine.ChangeState(AiStateId.ChaseSound);
     }
 }

@@ -22,6 +22,7 @@ public class AiStateChasePlayer : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 6.0f;
         agent.agentSpeed = agent.chaseSpeed;
+        Debug.Log("State Chase Player");
     }
 
     public void Exit(AiAgent agent){

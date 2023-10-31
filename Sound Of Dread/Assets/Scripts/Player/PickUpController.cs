@@ -14,10 +14,12 @@ public class PickUpController : MonoBehaviour
     public static bool slotFull;
 
     public WaveController waveController;
-    private Vector3 collisionPos;
+    public Vector3 collisionPos;
+    public bool isThrown;
 
     private void Start()
     {
+        isThrown = false;
         if (!equipped)
         {
             rb.isKinematic = false;
@@ -51,7 +53,7 @@ public class PickUpController : MonoBehaviour
         rb.isKinematic = true;
         coll.isTrigger = true;
 
-        
+        isThrown = false;
 
 
     }
@@ -81,6 +83,7 @@ public class PickUpController : MonoBehaviour
         {
             collisionPos = collision.contacts[0].point;
             waveController.SpawnWaveEffect(collisionPos);
+            isThrown = true;
         }
         
     }

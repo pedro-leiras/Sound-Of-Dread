@@ -16,10 +16,12 @@ public class AiStateAttack : AiState{
         //assim que entra neste state o enemy olha para o player
         agent.transform.LookAt(agent.playerTranform.position);
         // valor original do controlador para o ataque
-        originalAnimationValue = 8.0f;
+        originalAnimationValue = 8.0f; 
+        agent.animator.SetFloat(agent.transitionAnimation, originalAnimationValue);
         // mantem a sua posicao enquanto ataca
-        agent.agentSpeed = 0.0f; 
-        Debug.Log("State Attack");
+        agent.agentSpeed = 0.0f;
+        agent.navMeshAgent.destination = agent.transform.position;
+        agent.source.clip = agent.attackClip;
     }
 
     public void Exit(AiAgent agent){
@@ -27,14 +29,8 @@ public class AiStateAttack : AiState{
     }
 
     public void Update(AiAgent agent){
-        // calculos para a animacao do enimigo ser mais smooth
-        float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
-        float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);
-
-        agent.animator.SetFloat(agent.transitionAnimation, newValue);
-
         timer += Time.deltaTime;
-        if (timer >= agent.animator.GetCurrentAnimatorStateInfo(0).length - 1.0f && !agent.player.isDead){
+        if (timer >= agent.animator.GetCurrentAnimatorStateInfo(0).length + 1.0f && !agent.player.isDead){
             // quando a animacao acabar e se o jogador nao estiver morto entao percorre
             if ((agent.player.currentHealth - agent.damage) > 0){
                 // verifica se a vida do player menos o dano do enimigo e menor que 0 antes de atacar
@@ -54,6 +50,11 @@ public class AiStateAttack : AiState{
         }
 
         // se o player estiver morto o enimigo volta a patrolhar para nao ficar a atacar no vacuo
-        if(agent.player.isDead) agent.stateMachine.ChangeState(AiStateId.Patrol);
+        if(agent.player.isDead) agent.stateMachine.ChangeState(AiStateId.Idle);
+
+        // se o enimigo morrer fica no estado morto
+        if (agent.isDead) agent.stateMachine.ChangeState(AiStateId.Dead);
+
+        if (!agent.source.isPlaying) agent.source.PlayScheduled(agent.delayInSecondsAttack);
     }
 }

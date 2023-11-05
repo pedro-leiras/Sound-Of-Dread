@@ -20,7 +20,8 @@ public class AiStatePatrol : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 4.0f;
         agent.agentSpeed = agent.patrolSpeed;
-        Debug.Log("State Patrol");
+        agent.navMeshAgent.updateRotation = false;
+        agent.source.clip = agent.patrolClip;
     }
 
     public void Exit(AiAgent agent){
@@ -29,6 +30,7 @@ public class AiStatePatrol : AiState{
     }
 
     public void Update(AiAgent agent){
+        agent.transform.rotation = Quaternion.LookRotation(agent.navMeshAgent.velocity.normalized);
         // calculos para a animacao do enimigo ser mais smooth
         float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
         float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);
@@ -55,5 +57,10 @@ public class AiStatePatrol : AiState{
         // distancia do objecto entre a posicao do enemy e a colisao do objecto
         if (agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown)
             agent.stateMachine.ChangeState(AiStateId.ChaseSound);
+
+        // se o enimigo morrer fica no estado morto
+        if (agent.isDead) agent.stateMachine.ChangeState(AiStateId.Dead);
+
+        if (!agent.source.isPlaying) agent.source.PlayScheduled(agent.delayInSecondsPatrol);
     }
 }

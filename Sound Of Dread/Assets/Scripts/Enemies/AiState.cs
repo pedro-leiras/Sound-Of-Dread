@@ -7,7 +7,8 @@ public enum AiStateId{
     Idle, //idle estado normal
     Attack, //atacar player
     Patrol,
-    ChaseSound //seguir o som
+    ChaseSound, //seguir o som
+    Dead //enimigo morre
 }
 
 public interface AiState{

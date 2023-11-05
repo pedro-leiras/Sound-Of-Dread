@@ -14,15 +14,16 @@ public class AiStateChaseSound : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 4.0f;
         agent.agentSpeed = agent.patrolSpeed;
-        Debug.Log("State Chase Sound");
+        agent.navMeshAgent.updateRotation = false;
+        agent.source.clip = agent.chaseClip;
     }
 
     public void Exit(AiAgent agent){
 
     }
 
-    public void Update(AiAgent agent)
-    {
+    public void Update(AiAgent agent){
+        agent.transform.rotation = Quaternion.LookRotation(agent.navMeshAgent.velocity.normalized);
         // calculos para a animacao do enimigo ser mais smooth
         float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
         float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);
@@ -48,5 +49,10 @@ public class AiStateChaseSound : AiState{
         // se a distancia entre o jogador e o enemy for a que ele consegue atacar entao ataca o player 
         if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) < agent.agentStoppingDistance && !agent.player.isDead)
             agent.stateMachine.ChangeState(AiStateId.Attack);
+
+        // se o enimigo morrer fica no estado morto
+        if (agent.isDead) agent.stateMachine.ChangeState(AiStateId.Dead);
+
+        if (!agent.source.isPlaying) agent.source.PlayScheduled(agent.delayInSecondsChase);
     }
 }

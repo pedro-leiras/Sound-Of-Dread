@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
     private InputAction _jumpAction;
     private InputAction _crouchAction;
 
+    public PlayerController playerController;
+
 
 
 
@@ -34,6 +36,7 @@ public class InputManager : MonoBehaviour
         _lookAction = _currentMap.FindAction("Look");
         _runAction  = _currentMap.FindAction("Run");
         _crouchAction = _currentMap.FindAction("Crouch");
+        playerController = FindObjectOfType<PlayerController>();
 
         _moveAction.performed += onMove;
         _lookAction.performed += onLook;
@@ -53,32 +56,31 @@ public class InputManager : MonoBehaviour
 
     private void onMove(InputAction.CallbackContext context)
     {
-        Move = context.ReadValue<Vector2>();
+        if(playerController.isDead == false) {
+            Move = context.ReadValue<Vector2>();
+        }
     }
     private void onLook(InputAction.CallbackContext context)
     {
-        Look = context.ReadValue<Vector2>();
+
+
+            Look = context.ReadValue<Vector2>();
+
     }
     private void onRun(InputAction.CallbackContext context)
     {
-        Run = context.ReadValueAsButton();
-    }
-
-    private void onJump(InputAction.CallbackContext context)
-    {
-        Jump = context.ReadValueAsButton();
+            if (playerController.isDead == false)
+            {
+                Run = context.ReadValueAsButton();
+            }
     }
     private void onCrouch(InputAction.CallbackContext context)
     {
-        /*foreach (DoorController door in doors)
-        {
-            
-            if (door.doorID == 1)
-                door.lockStatus = 0;
-            }
-        }*/
-        Crouch = context.ReadValueAsButton();
-    }
+                if (playerController.isDead == false)
+                {
+                    Crouch = context.ReadValueAsButton();
+                }
+    }   
 
     private void OnEnable() {
         _currentMap.Enable();
@@ -87,4 +89,5 @@ public class InputManager : MonoBehaviour
     private void OnDisable() {
         _currentMap.Disable();
     }
+
 }

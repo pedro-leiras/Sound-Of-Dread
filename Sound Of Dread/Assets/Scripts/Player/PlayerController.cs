@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [Header("Import Parameters")]
     private Rigidbody _playerRigidbody;
     private InputManager _inputManager;
+    private CapsuleCollider capsuleCollider;
 
     [Header("Animator Parameters")]
     private Animator _animator;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private int _fallingHash;
     private int _zVelHash;
     private int _crouchHash;
+    private int _deathHash;
     private float _xRotation;
 
     [Header("Speed Parameters")]
@@ -61,6 +63,12 @@ public class PlayerController : MonoBehaviour
     private int regenAmount = 1;   // Health regeneration per second
     private float lastDamageTime;
 
+    public TimePuzzle timePuzzle;
+    public LeverPuzzle leverPuzzle;
+    public CheckpointManager checkpointManager;
+
+
+
 
 
 
@@ -76,22 +84,28 @@ public class PlayerController : MonoBehaviour
         _xVelHash = Animator.StringToHash("X_Velocity");
         _yVelHash = Animator.StringToHash("Y_Velocity");
         _crouchHash = Animator.StringToHash("Crouch");
+        _deathHash = Animator.StringToHash("Death");
 
         currentHealth = maxHealth;
         playerCamera = GetComponentInChildren<Camera>();
-
+        TimePuzzle timePuzzle = FindObjectOfType<TimePuzzle>();
+        LeverPuzzle leverPuzzle = FindObjectOfType<LeverPuzzle>();
+        CheckpointManager checkpointManager = FindObjectOfType<CheckpointManager>();
         isDead = false; // inicializar o player como vivo
     }
 
     private void FixedUpdate()
     {
-        Move();
-        HandleCrouch();
-              
-        //Wait 5 seconds for player to regenerate
-        if (Time.time - lastDamageTime >= regenDelay)
-        {
-            HandleHealth();
+        if(isDead == false) { 
+            Move();
+            HandleCrouch();
+
+
+            //Wait 8 seconds for player to regenerate
+            if (Time.time - lastDamageTime >= regenDelay)
+            {
+                HandleHealth();
+            }
         }
     }
 
@@ -141,14 +155,14 @@ public class PlayerController : MonoBehaviour
         _animator.SetFloat(_yVelHash, _currentVelocity.y);
     }
 
-
-
     private void CamMovements()
     {
         if (!_hasAnimator) return;
 
         var Mouse_X = _inputManager.Look.x;
         var Mouse_Y = _inputManager.Look.y;
+
+        
         Camera.position = CameraRoot.position;
         Camera.rotation = CameraRoot.rotation;
 
@@ -158,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
         Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
         _playerRigidbody.MoveRotation(_playerRigidbody.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
+
     }
 
     private void HandleCrouch()
@@ -182,11 +197,81 @@ public class PlayerController : MonoBehaviour
     public void HandleHealth()
     {
         //Regenerate health
-        if (currentHealth < maxHealth)
+        if (currentHealth > 0)
         {
-            currentHealth += regenAmount;
-            currentHealth = Mathf.Min(currentHealth, maxHealth);
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += regenAmount;
+                currentHealth = Mathf.Min(currentHealth, maxHealth);
+            }
         }
+        else
+        {
+            //stops the player movement
+            _currentVelocity.x = 0;
+            _currentVelocity.y = 0;
+
+            _animator.SetFloat(_xVelHash, _currentVelocity.x);
+            _animator.SetFloat(_yVelHash, _currentVelocity.y);
+
+            isDead = true;
+            _animator.SetBool(_deathHash, true);
+            
+
+            //Gets what current leven we are on
+            string currentLevel = GetCurrentLevelName();
+
+            //Respawn
+            StartCoroutine(RespawnAfterDelay(10f, currentLevel));
+
+        }
+    }
+
+    private IEnumerator RespawnAfterDelay(float delay, string levelName)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Find the appropriate checkpoint for the current level
+        Transform respawnPoint = GetRespawnPointForLevel(levelName);
+
+
+        Vector3 newCameraPosition = respawnPoint.position + new Vector3(0, 2, 0); // Adjust the camera height as needed
+        playerCamera.transform.position = newCameraPosition;
+
+        // Reset player's health and position
+        currentHealth = maxHealth;
+        transform.position = respawnPoint.position;
+        isDead = false;
+        _animator.SetBool(_deathHash, false);
+
+    }
+    private Transform GetRespawnPointForLevel(string levelName)
+    {
+        foreach (var checkpoint in CheckpointManager.instance.checkpoints)
+        {
+            if (checkpoint.levelName == levelName)
+            {
+                return checkpoint.spawnPoint;
+            }
+        }
+
+
+        return transform;
+    }
+
+    private string GetCurrentLevelName()
+    {
+        // Determine the current level
+        if (timePuzzle.Level2Finish)
+        {
+            return "Level2";
+        }
+        else if (leverPuzzle.Level1Finish)
+        {
+            return "Level1";
+        }
+
+        return "Default"; 
     }
 
     private FSMaterial SurfaceSelect()

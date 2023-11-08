@@ -558,17 +558,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    - target: {fileID: 434776, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.51
-      objectReference: {fileID: 0}
-    - target: {fileID: 434776, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.6
-      objectReference: {fileID: 0}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 445250, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -587,11 +576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445250, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< Updated upstream
-      value: -3
-=======
       value: -3.26
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 445250, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
       propertyPath: m_LocalPosition.y
@@ -599,11 +584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 445250, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< Updated upstream
-      value: 6
-=======
       value: 8.37
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 445250, guid: ca9175a318b4a3248a4918476e9a6438, type: 3}
       propertyPath: m_LocalRotation.w

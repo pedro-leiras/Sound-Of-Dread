@@ -11,7 +11,6 @@ public class WaveController : MonoBehaviour
     public float durationFS = 10;
     public float sizeFS = 500;
     public SobelController sobelController;
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
@@ -24,7 +23,6 @@ public class WaveController : MonoBehaviour
     {
         GameObject waveEffect = Instantiate(WaveEffectPrefab, spawnPos, Quaternion.identity) as GameObject;
         ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
-
         if (waveEffectPS != null)
         {
             var main = waveEffectPS.main;
@@ -35,8 +33,6 @@ public class WaveController : MonoBehaviour
         {
             Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
         }
-
-        sobelController.EnableSobel();
 
         Destroy(waveEffect, durationObject + 1);
         Invoke("disableSobel", durationObject + 0.5f);
@@ -64,5 +60,10 @@ public class WaveController : MonoBehaviour
     private void disableSobel()
     {
         sobelController.DisableSobel();
+    }
+
+    private void disableSobel(GameObject gameObject)
+    {
+        sobelController.DisableSobel(gameObject);
     }
 }

@@ -379,7 +379,7 @@ MonoBehaviour:
   puc: {fileID: 0}
   isDead: 0
   agentSpeed: 1
-  agentStoppingDistance: 2.2
+  agentStoppingDistance: 3
   agentView: 30
   timeForMonsterToStopLooking: 30
   damage: 50

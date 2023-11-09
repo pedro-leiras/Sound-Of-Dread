@@ -33,7 +33,7 @@ public class WaveController : MonoBehaviour
         {
             Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
         }
-
+        sobelController.EnableSobel();
         Destroy(waveEffect, durationObject + 1);
         Invoke("disableSobel", durationObject + 0.5f);
     }

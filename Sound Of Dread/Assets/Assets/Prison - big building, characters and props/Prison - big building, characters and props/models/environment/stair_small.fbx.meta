@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 18de29dd189aa984b8e70ca2a59eae4a
+timeCreated: 1565607959
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: stair_small
+    100004: stair_small_roof
+    100006: big_window_2
+    100008: doors_frame_1
+    100010: doors_frame_1.001
+    100012: doors_frame_1.002
+    100014: doors_frame_1.003
+    100016: doors_frame_1.004
+    100018: doors_frame_2
+    100020: doors_frame_3
+    100022: doors_frame_4
+    100024: wall_2.008
+    100026: wall_2.009
+    400000: //RootNode
+    400002: stair_small
+    400004: stair_small_roof
+    400006: big_window_2
+    400008: doors_frame_1
+    400010: doors_frame_1.001
+    400012: doors_frame_1.002
+    400014: doors_frame_1.003
+    400016: doors_frame_1.004
+    400018: doors_frame_2
+    400020: doors_frame_3
+    400022: doors_frame_4
+    400024: wall_2.008
+    400026: wall_2.009
+    2300000: //RootNode
+    2300002: stair_small
+    2300004: stair_small_roof
+    2300006: big_window_2
+    2300008: doors_frame_1
+    2300010: doors_frame_1.001
+    2300012: doors_frame_1.002
+    2300014: doors_frame_1.003
+    2300016: doors_frame_1.004
+    2300018: doors_frame_2
+    2300020: doors_frame_3
+    2300022: doors_frame_4
+    2300024: wall_2.008
+    2300026: wall_2.009
+    3300000: //RootNode
+    3300002: stair_small
+    3300004: stair_small_roof
+    3300006: big_window_2
+    3300008: doors_frame_1
+    3300010: doors_frame_1.001
+    3300012: doors_frame_1.002
+    3300014: doors_frame_1.003
+    3300016: doors_frame_1.004
+    3300018: doors_frame_2
+    3300020: doors_frame_3
+    3300022: doors_frame_4
+    3300024: wall_2.008
+    3300026: wall_2.009
+    4300000: stair_small
+    4300002: stair_small_roof
+    4300004: doors_frame_1.004
+    4300006: doors_frame_1.003
+    4300008: doors_frame_1.002
+    4300010: doors_frame_1.001
+    4300012: doors_frame_1
+    4300014: wall_2.009
+    4300016: wall_2.008
+    4300018: doors_frame_2
+    4300020: doors_frame_4
+    4300022: doors_frame_3
+    4300024: big_window_2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

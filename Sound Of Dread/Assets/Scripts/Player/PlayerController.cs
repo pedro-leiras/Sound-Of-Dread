@@ -24,12 +24,12 @@ public class PlayerController : MonoBehaviour
     }
 
     private AudioSource FSAudioSource;
-
     private Camera playerCamera;
     [Header("Import Parameters")]
     private Rigidbody _playerRigidbody;
     private InputManager _inputManager;
     private CapsuleCollider capsuleCollider;
+   
 
     [Header("Animator Parameters")]
     private Animator _animator;

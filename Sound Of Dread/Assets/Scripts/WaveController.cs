@@ -11,6 +11,7 @@ public class WaveController : MonoBehaviour
     public float durationFS = 10;
     public float sizeFS = 500;
     public SobelController sobelController;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes

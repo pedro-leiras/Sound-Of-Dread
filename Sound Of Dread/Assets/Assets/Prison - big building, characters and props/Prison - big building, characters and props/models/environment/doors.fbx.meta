@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: a12b8bb8dddd0ad478632bd53d633dd1
+timeCreated: 1563014256
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: doors_1
+    100004: doors_1_1
+    100006: doors_1_2
+    100008: doors_1_3
+    100010: doors_2
+    100012: doors_2_1
+    100014: doors_2_2
+    100016: doors_3
+    100018: doors_3_1
+    100020: doors_3_2
+    100022: doors_3_3
+    100024: doors_3_4
+    100026: doors_4
+    100028: doors_4_1
+    100030: doors_4_2
+    100032: doors_4_3
+    400000: //RootNode
+    400002: doors_1
+    400004: doors_1_1
+    400006: doors_1_2
+    400008: doors_1_3
+    400010: doors_2
+    400012: doors_2_1
+    400014: doors_2_2
+    400016: doors_3
+    400018: doors_3_1
+    400020: doors_3_2
+    400022: doors_3_3
+    400024: doors_3_4
+    400026: doors_4
+    400028: doors_4_1
+    400030: doors_4_2
+    400032: doors_4_3
+    2300000: //RootNode
+    2300002: doors_1
+    2300004: doors_1_1
+    2300006: doors_1_2
+    2300008: doors_1_3
+    2300010: doors_2
+    2300012: doors_2_1
+    2300014: doors_2_2
+    2300016: doors_3
+    2300018: doors_3_1
+    2300020: doors_3_2
+    2300022: doors_3_3
+    2300024: doors_3_4
+    2300026: doors_4
+    2300028: doors_4_1
+    2300030: doors_4_2
+    2300032: doors_4_3
+    3300000: //RootNode
+    3300002: doors_1
+    3300004: doors_1_1
+    3300006: doors_1_2
+    3300008: doors_1_3
+    3300010: doors_2
+    3300012: doors_2_1
+    3300014: doors_2_2
+    3300016: doors_3
+    3300018: doors_3_1
+    3300020: doors_3_2
+    3300022: doors_3_3
+    3300024: doors_3_4
+    3300026: doors_4
+    3300028: doors_4_1
+    3300030: doors_4_2
+    3300032: doors_4_3
+    4300000: doors
+    4300002: doors_3_2
+    4300004: doors_3_3
+    4300006: doors_3_4
+    4300008: doors_4_3
+    4300010: doors_4_2
+    4300012: doors_4_1
+    4300014: doors_3_1
+    4300016: doors_3
+    4300018: doors_2_2
+    4300020: doors_2_1
+    4300022: doors_2
+    4300024: doors_1_1
+    4300026: doors_1_3
+    4300028: doors_1_2
+    4300030: doors_1
+    4300032: doors_4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

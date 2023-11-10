@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6147001323967145561
+--- !u!1001 &2853518962389150333
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -25,17 +25,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.429146
+      value: -0.21385324
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1178033
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.637318
+      value: 0.13616014
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
@@ -137,6 +137,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: -845366134926640785, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbd0375208b6d2c44b340dd8c8a7467d, type: 2}
     - target: {fileID: -816429817478605607, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
       propertyPath: m_Layer
@@ -192,6 +197,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3596088034327456649, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbd0375208b6d2c44b340dd8c8a7467d, type: 2}
     - target: {fileID: 3995964091389392156, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
         type: 3}
       propertyPath: m_Layer
@@ -259,35 +269,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b, type: 3}
---- !u!1 &6453624126013168392 stripped
+--- !u!1 &3123481299193878316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5872aa9b3218b1843a5a2cf2e9f8fd7b,
     type: 3}
-  m_PrefabInstance: {fileID: 6147001323967145561}
+  m_PrefabInstance: {fileID: 2853518962389150333}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &-5767355064621553331
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453624126013168392}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &-8966153657367905768
+--- !u!136 &2686351940062623386
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453624126013168392}
+  m_GameObject: {fileID: 3123481299193878316}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -295,13 +289,13 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &1766579065430612773
+--- !u!114 &4490689536786634663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453624126013168392}
+  m_GameObject: {fileID: 3123481299193878316}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9d79faf45573d048be069dcec5ea9c8, type: 3}
@@ -325,6 +319,8 @@ MonoBehaviour:
   delayInSecondsIdle: 1
   deathClip: {fileID: 0}
   delayInSecondsDeath: 1
+  pointingClip: {fileID: 0}
+  delayInSecondsPointing: 1
   startingPoint: 0
   transitionAnimation: -1203198838
   puc: {fileID: 0}
@@ -340,13 +336,13 @@ MonoBehaviour:
   listeningArea: 14
   isAttackable: 0
   agentHP: 100
---- !u!195 &5182924380678397315
+--- !u!195 &7006323765669073153
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453624126013168392}
+  m_GameObject: {fileID: 3123481299193878316}
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.35

@@ -58,7 +58,10 @@ public class AiStateChasePlayer : AiState{
         if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) >= agent.agentView && canSeePlayer && !agent.player.isDead)
             timer -= Time.deltaTime;
 
-        if (timer < 0.0f) agent.stateMachine.ChangeState(AiStateId.Patrol); // assim que o timer chegar a 0 o monstro para de se mover e fica no seu estado patrol
+        if (timer < 0.0f) 
+            if(agent.points.Length > 0)
+                agent.stateMachine.ChangeState(AiStateId.Patrol); // assim que o timer chegar a 0 o monstro para de se mover e fica no seu estado patrol
+            else agent.stateMachine.ChangeState(AiStateId.Idle);
 
         // se a distancia entre o jogador e o enemy for a que ele consegue atacar entao ataca o player 
         if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) < agent.agentStoppingDistance && !agent.player.isDead)

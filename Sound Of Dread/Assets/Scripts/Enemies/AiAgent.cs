@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +22,8 @@ public class AiAgent : MonoBehaviour{
     public float delayInSecondsIdle = 1f;
     public AudioClip deathClip;
     public float delayInSecondsDeath = 1f;
+    public AudioClip pointingClip;
+    public float delayInSecondsPointing = 1f;
 
     //onde vai começar a patrolhar
     [HideInInspector]
@@ -58,6 +61,9 @@ public class AiAgent : MonoBehaviour{
         if (puc == null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();
         source = gameObject.AddComponent<AudioSource>();
         source.volume = 0.2f;
+        source.spatialBlend = 1.0f;
+        source.rolloffMode = AudioRolloffMode.Linear;
+        source.maxDistance = 20.0f;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());
         stateMachine.RegisterState(new AiStatePatrol());
@@ -65,6 +71,7 @@ public class AiAgent : MonoBehaviour{
         stateMachine.RegisterState(new AiStateIdle());
         stateMachine.RegisterState(new AiStateChaseSound());
         stateMachine.RegisterState(new AiStateDead());
+        stateMachine.RegisterState(new AiStatePoiting());
         //muda os estados conforme o pretendido
         stateMachine.ChangeState(initialState);
     }

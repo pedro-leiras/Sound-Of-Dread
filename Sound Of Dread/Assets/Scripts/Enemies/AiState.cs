@@ -8,7 +8,8 @@ public enum AiStateId{
     Attack, //atacar player
     Patrol,
     ChaseSound, //seguir o som
-    Dead //enimigo morre
+    Dead, //enemy morre
+    Poiting
 }
 
 public interface AiState{

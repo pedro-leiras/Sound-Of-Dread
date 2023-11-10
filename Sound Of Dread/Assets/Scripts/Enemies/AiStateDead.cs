@@ -1,5 +1,5 @@
 /*
-    aqui e feita a AI do patrol state do monstro
+    aqui e feita a AI do dead state do monstro
 */
 using UnityEditor;
 using UnityEngine;
@@ -16,9 +16,7 @@ public class AiStateDead : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 10.0f;
         // mantem a sua posicao enquanto ataca
-        agent.agentSpeed = 0.0f;
         agent.agentCollider.enabled = false;
-        agent.navMeshAgent.Stop();
         agent.source.clip = agent.deathClip;
     }
 

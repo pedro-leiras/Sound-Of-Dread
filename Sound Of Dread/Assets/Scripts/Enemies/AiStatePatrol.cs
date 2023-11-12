@@ -20,7 +20,7 @@ public class AiStatePatrol : AiState{
         // valor original do controlador para o ataque
         originalAnimationValue = 4.0f;
         agent.agentSpeed = agent.patrolSpeed;
-        agent.navMeshAgent.updateRotation = false;
+        //agent.navMeshAgent.updateRotation = false;
         agent.source.clip = agent.patrolClip;
     }
 
@@ -30,7 +30,7 @@ public class AiStatePatrol : AiState{
     }
 
     public void Update(AiAgent agent){
-        agent.transform.rotation = Quaternion.LookRotation(agent.navMeshAgent.velocity.normalized);
+        //agent.transform.rotation = Quaternion.LookRotation(agent.navMeshAgent.velocity.normalized);
         // calculos para a animacao do enimigo ser mais smooth
         float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
         float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);

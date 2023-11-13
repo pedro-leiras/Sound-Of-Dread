@@ -17,8 +17,6 @@ public class AiStatePoiting : AiState{
         originalAnimationValue = 12.0f;
         // mantem a sua posicao enquanto ataca
         agent.agentSpeed = 0.0f;
-        agent.agentCollider.enabled = false;
-        agent.navMeshAgent.Stop();
         agent.source.clip = agent.pointingClip;
     }
 

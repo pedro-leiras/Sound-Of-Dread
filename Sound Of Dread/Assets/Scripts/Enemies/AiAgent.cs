@@ -25,7 +25,7 @@ public class AiAgent : MonoBehaviour{
     public AudioClip pointingClip;
     public float delayInSecondsPointing = 1f;
 
-    //onde vai começar a patrolhar
+    //onde vai comeï¿½ar a patrolhar
     [HideInInspector]
     public int startingPoint = 0;
     [HideInInspector]
@@ -58,12 +58,14 @@ public class AiAgent : MonoBehaviour{
         if (agentCollider == null) agentCollider = GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider>();
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
-        if (puc == null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();
+        GameObject pucObject = GameObject.FindGameObjectWithTag("Object");
+        if (pucObject != null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();
+        else puc = null;
         source = gameObject.AddComponent<AudioSource>();
         source.volume = 0.2f;
         source.spatialBlend = 1.0f;
         source.rolloffMode = AudioRolloffMode.Linear;
-        source.maxDistance = 20.0f;
+        source.maxDistance = 30.0f;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());
         stateMachine.RegisterState(new AiStatePatrol());

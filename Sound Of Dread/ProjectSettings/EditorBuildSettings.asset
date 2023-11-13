@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Efeitos Testes.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/ForestScene.unity
+    guid: 928cd12e224fbae42bbeb96cc09a48e7
+  - enabled: 1
+    path: Assets/Scenes/InsideLevels.unity
+    guid: 2ecb0b9c4c4e3b542a82860f35f204d1
+  - enabled: 1
+    path: Assets/Scenes/Church.unity
+    guid: d061061f509e09046b1a3364da116df3
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 096da0a21236c5441a599911ab04ec27,
       type: 2}

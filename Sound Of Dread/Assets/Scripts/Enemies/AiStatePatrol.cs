@@ -13,7 +13,7 @@ public class AiStatePatrol : AiState{
     }
 
     public void Enter(AiAgent agent){ 
-        // current toma valor do startingPoint que está. se no caso o enemy saiu do ponto 2 enquanto estava a patrulhar
+        // current toma valor do startingPoint que estï¿½. se no caso o enemy saiu do ponto 2 enquanto estava a patrulhar
         // para seguir o player ou para o que quer que seja ele volta a esse ponto para patrulhar
         current = agent.startingPoint;
         distanceThreshold = agent.agentStoppingDistance;
@@ -55,7 +55,7 @@ public class AiStatePatrol : AiState{
             agent.stateMachine.ChangeState(AiStateId.Attack);
 
         // distancia do objecto entre a posicao do enemy e a colisao do objecto
-        if (agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown)
+        if (agent.puc != null && agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown)
             agent.stateMachine.ChangeState(AiStateId.ChaseSound);
 
         // se o enimigo morrer fica no estado morto

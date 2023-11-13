@@ -8,6 +8,7 @@ public class TimePuzzle : MonoBehaviour
     private bool secondPlateActivated = false;
     private float timer = 30f;
     public bool Level2Finish = false;
+    public DoorController[] doors;
 
     private void Update()
     {
@@ -20,7 +21,6 @@ public class TimePuzzle : MonoBehaviour
                 if (timer <= 0)
                 {
                     Debug.Log("Time is up");
-                    //Failed attempt
                     ResetPuzzle2();
                 }   
             }
@@ -29,16 +29,23 @@ public class TimePuzzle : MonoBehaviour
 
     public void PressurePlateActivated(int plateID)
     {
-        if (plateID == 1)
+        if (plateID == 0)
         {
             firstPlateActivated = true;
         }
-        else if (plateID == 2)
+        else if (plateID == 1)
         {
             secondPlateActivated = true;
             if (firstPlateActivated && secondPlateActivated)
             {
                 Debug.Log("You win");
+                foreach (DoorController door in doors)
+                {
+                    if(door.doorID == 5)
+                    {
+                        door.lockStatus = 0;
+                    }
+                }
                 Level2Finish = true;
             }
         }

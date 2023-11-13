@@ -24,6 +24,16 @@ public class LeverPuzzle : MonoBehaviour
             //Check if all levers are opened
             foreach (LeverController lever in levers)
             {
+                if(lever.LeverID == 1 && lever.leverState == 2)
+                {
+                    foreach(DoorController door in doors)
+                    {
+                        if(door.doorID == 1)
+                        {
+                            door.lockStatus = 0;
+                        }
+                    }
+                }
                 if (lever.leverState != 2)
                 {
                     allLeversInState2 = false;
@@ -33,13 +43,6 @@ public class LeverPuzzle : MonoBehaviour
 
             if (allLeversInState2)
             {
-                foreach (DoorController door in doors)
-                {
-                    if (door.doorID == 1)
-                    {
-                        door.lockStatus = 0;
-                    }
-                }
                 Level1Finish = true;
             }
         }

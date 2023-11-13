@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private int _crouchHash;
     private int _deathHash;
     private float _xRotation;
+    private float lastXRotation;
 
     [Header("Speed Parameters")]
     private const float _walkSpeed = 2f;
@@ -56,6 +57,8 @@ public class PlayerController : MonoBehaviour
     public float staminaDepletionRate = 20.0f;
     public float staminaRegenRate = 10.0f;
     float scaleFactor = 3.0f;
+    private bool isRegeneratingStamina = false;
+    private float timeSinceStaminaDepleted = 0f;
 
     [Header("Health Parameters")]
     private int maxHealth = 100;
@@ -137,6 +140,7 @@ public class PlayerController : MonoBehaviour
             float staminaRegen = staminaRegenRate * Time.deltaTime * scaleFactor;
             currentStamina = Mathf.Min(maxStamina, currentStamina + staminaRegen);
         }
+
         if (_inputManager.Crouch) targetSpeed = 1.5f;
         if (_inputManager.Move == Vector2.zero) targetSpeed = 0;
 
@@ -169,11 +173,21 @@ public class PlayerController : MonoBehaviour
         Camera.rotation = CameraRoot.rotation;
 
 
-        _xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
-        _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
+        
 
-        Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
-        _playerRigidbody.MoveRotation(_playerRigidbody.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
+        if (!isDead)
+        {
+            _xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
+            _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
+            lastXRotation = _xRotation;
+            Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
+            _playerRigidbody.MoveRotation(_playerRigidbody.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
+        }
+        else
+        {
+            Camera.localRotation = Quaternion.Euler(lastXRotation, 0, 0);
+        }
+        
 
     }
 
@@ -277,7 +291,7 @@ public class PlayerController : MonoBehaviour
             return "Level1";
         }
 
-        return "Default"; 
+        return "Checkpoint1"; 
     }
 
     private FSMaterial SurfaceSelect()

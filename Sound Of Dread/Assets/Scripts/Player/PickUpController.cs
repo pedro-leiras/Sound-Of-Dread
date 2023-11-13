@@ -38,6 +38,8 @@ public class PickUpController : MonoBehaviour
         if (!equipped && distaceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E) && !slotFull) PickUp();
 
         if (equipped && Input.GetKeyDown(KeyCode.Mouse1)) Drop();
+
+        if (equipped && Input.GetKeyDown(KeyCode.Q)) DropDown();
     }
 
     private void PickUp()
@@ -75,6 +77,19 @@ public class PickUpController : MonoBehaviour
 
         float random = Random.Range(-1f, 1f);
         rb.AddTorque(new Vector3(random, random, random) * 10);
+    }
+
+    private void DropDown()
+    {
+        equipped = false;
+        slotFull = false;
+
+        transform.SetParent(null);
+
+        rb.isKinematic = false;
+        coll.isTrigger = false;
+
+        rb.velocity = player.GetComponent<Rigidbody>().velocity;
     }
 
     private void OnCollisionEnter(Collision collision)

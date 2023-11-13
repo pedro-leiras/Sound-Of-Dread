@@ -15,15 +15,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BottomLimit = 50f;
     [SerializeField] private float MouseSensitivity = 21.9f;
 
+    public AudioClip hurtClip;
     [Header("Footsteps")]
     public List<AudioClip> woodFS;
+    public List<AudioClip> gravelFS;
 
     enum FSMaterial
     {
-        Wood, Empty
+        Wood, Gravel, Empty
     }
 
-    private AudioSource FSAudioSource;
+    private AudioSource AudioSource;
     private Camera playerCamera;
     [Header("Import Parameters")]
     private Rigidbody _playerRigidbody;
@@ -75,12 +77,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        
+
         _hasAnimator = TryGetComponent<Animator>(out _animator);
         _playerRigidbody = GetComponent<Rigidbody>();
         _inputManager = GetComponent<InputManager>();
-        FSAudioSource = GetComponent<AudioSource>();
-
         _xVelHash = Animator.StringToHash("X_Velocity");
         _yVelHash = Animator.StringToHash("Y_Velocity");
         _crouchHash = Animator.StringToHash("Crouch");
@@ -92,6 +92,8 @@ public class PlayerController : MonoBehaviour
         LeverPuzzle leverPuzzle = FindObjectOfType<LeverPuzzle>();
         CheckpointManager checkpointManager = FindObjectOfType<CheckpointManager>();
         isDead = false; // inicializar o player como vivo
+
+        AudioSource = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -184,6 +186,10 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth > 0)
         {
+            AudioSource.clip = hurtClip;
+            AudioSource.volume = 0.7f;
+            AudioSource.pitch = 1;
+            AudioSource.Play();
             currentHealth -= damage;
             currentHealth = Mathf.Max(currentHealth, 0);
             lastDamageTime = Time.time;
@@ -285,6 +291,10 @@ public class PlayerController : MonoBehaviour
             {
                 return FSMaterial.Wood;
             }
+            if (hit.collider.CompareTag("Gravel Floor"))
+            {
+                return FSMaterial.Gravel;
+            }
         }
 
         return FSMaterial.Empty;
@@ -295,11 +305,13 @@ public class PlayerController : MonoBehaviour
         AudioClip clip = null;
 
         FSMaterial surface = SurfaceSelect();
-
         switch(surface)
         {
             case FSMaterial.Wood:
                 clip = woodFS[UnityEngine.Random.Range(0, woodFS.Count)];
+                break;
+            case FSMaterial.Gravel:
+                clip = gravelFS[UnityEngine.Random.Range(0, gravelFS.Count)];
                 break;
             case FSMaterial.Empty: 
                 break;
@@ -309,11 +321,11 @@ public class PlayerController : MonoBehaviour
 
         if(surface != FSMaterial.Empty)
         {
-            FSAudioSource.clip = clip;
+            AudioSource.clip = clip;
 
-            FSAudioSource.volume = UnityEngine.Random.Range(0.7f, 1f);
-            FSAudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-            FSAudioSource.Play();
+            AudioSource.volume = UnityEngine.Random.Range(0.5f, 0.8f);
+            AudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            AudioSource.Play();
         }
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - lever
   - Object
   - Enemy
+  - Gravel Floor
   layers:
   - Default
   - TransparentFX

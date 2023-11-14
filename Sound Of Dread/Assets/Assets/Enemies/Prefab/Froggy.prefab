@@ -652,7 +652,7 @@ MonoBehaviour:
   patrolClip: {fileID: 0}
   delayInSecondsPatrol: 1
   chaseClip: {fileID: 8300000, guid: 9009a5023d6ddf6409cf510ce38c63c5, type: 3}
-  delayInSecondsChase: 1
+  delayInSecondsChase: 5
   attackClip: {fileID: 8300000, guid: 86ec229619fe4774291b415999bfc3e7, type: 3}
   delayInSecondsAttack: 1
   idleClip: {fileID: 0}

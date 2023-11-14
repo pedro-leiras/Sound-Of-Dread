@@ -562,7 +562,7 @@ MonoBehaviour:
   attackClip: {fileID: 8300000, guid: 86ec229619fe4774291b415999bfc3e7, type: 3}
   delayInSecondsAttack: 1
   idleClip: {fileID: 8300000, guid: 8cb93b9a68f85824caa7bce6771e9571, type: 3}
-  delayInSecondsIdle: 1
+  delayInSecondsIdle: 10
   deathClip: {fileID: 8300000, guid: 897a40f5b5f7ab5499cb8b579527ecbb, type: 3}
   delayInSecondsDeath: 1
   pointingClip: {fileID: 0}

@@ -1104,8 +1104,7 @@ GameObject:
   - component: {fileID: 8971550820881167439}
   - component: {fileID: 4395728545622622507}
   - component: {fileID: 2050968447637653925}
-  - component: {fileID: 8251078372927686808}
-  - component: {fileID: 7549119939390058461}
+  - component: {fileID: 8751450890242067846}
   m_Layer: 7
   m_Name: Cloudy
   m_TagString: Enemy
@@ -1233,7 +1232,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8251078372927686808
+--- !u!114 &8751450890242067846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1242,29 +1241,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7840423071657278541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b91982c441b164b895368db55cab8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f1fc0712bc2b9b49a3e2475c364a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaveEffectPrefab: {fileID: 1490282753510958588, guid: 1cdc25e4134d49540aa5e04ddb0cd155,
     type: 3}
-  durationObject: 3
-  sizeObject: 30
   durationFS: 1
   sizeFS: 10
-  sobelController: {fileID: 0}
---- !u!114 &7549119939390058461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840423071657278541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61f8b3bbdd5f9f46ab01f2815b72b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloorAndWallsParent: {fileID: 0}
 --- !u!1 &8191284572166147551
 GameObject:
   m_ObjectHideFlags: 0

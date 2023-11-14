@@ -16,7 +16,7 @@ public class WaveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
         {
-            SpawnWaveEffect(new Vector3(-1.13f, -6.57f, -8.9f));
+            SpawnWaveEffect(transform.position);
         }
     }
 
@@ -34,7 +34,7 @@ public class WaveController : MonoBehaviour
         {
             Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
         }
-        sobelController.EnableSobel();
+        sobelController.EnableSobel(spawnPos);
         Destroy(waveEffect, durationObject + 1);
         Invoke("disableSobel", durationObject + 0.5f);
     }
@@ -61,10 +61,5 @@ public class WaveController : MonoBehaviour
     private void disableSobel()
     {
         sobelController.DisableSobel();
-    }
-
-    private void disableSobel(GameObject gameObject)
-    {
-        sobelController.DisableSobel(gameObject);
     }
 }

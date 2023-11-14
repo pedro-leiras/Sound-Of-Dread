@@ -546,8 +546,7 @@ GameObject:
   - component: {fileID: 2780452636218182591}
   - component: {fileID: 6776992735122830828}
   - component: {fileID: 8910539345251952175}
-  - component: {fileID: 7864308037138908862}
-  - component: {fileID: 2281481595973145344}
+  - component: {fileID: 2419955562611748753}
   m_Layer: 7
   m_Name: Honey
   m_TagString: Enemy
@@ -675,7 +674,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7864308037138908862
+--- !u!114 &2419955562611748753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -684,29 +683,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3912789154737215937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b91982c441b164b895368db55cab8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f1fc0712bc2b9b49a3e2475c364a839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WaveEffectPrefab: {fileID: 1490282753510958588, guid: 1cdc25e4134d49540aa5e04ddb0cd155,
     type: 3}
-  durationObject: 3
-  sizeObject: 30
   durationFS: 1
   sizeFS: 10
-  sobelController: {fileID: 0}
---- !u!114 &2281481595973145344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3912789154737215937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61f8b3bbdd5f9f46ab01f2815b72b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloorAndWallsParent: {fileID: 0}
 --- !u!1 &4081849494475334738
 GameObject:
   m_ObjectHideFlags: 0

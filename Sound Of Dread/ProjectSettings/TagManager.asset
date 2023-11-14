@@ -11,6 +11,7 @@ TagManager:
   - Object
   - Enemy
   - Gravel Floor
+  - ChangeLevel
   layers:
   - Default
   - TransparentFX

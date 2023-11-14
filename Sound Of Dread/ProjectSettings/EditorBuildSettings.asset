@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/InsideLevels.unity
     guid: 2ecb0b9c4c4e3b542a82860f35f204d1
   - enabled: 1
+    path: Assets/Scenes/OutsideLevel.unity
+    guid: 783b63e27f2449348b62bb7159fec826
+  - enabled: 1
     path: Assets/Scenes/Church.unity
     guid: d061061f509e09046b1a3364da116df3
   m_configObjects:

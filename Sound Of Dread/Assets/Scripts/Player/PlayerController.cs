@@ -57,8 +57,9 @@ public class PlayerController : MonoBehaviour
     public float staminaDepletionRate = 20.0f;
     public float staminaRegenRate = 10.0f;
     float scaleFactor = 3.0f;
-    private bool isRegeneratingStamina = false;
-    private float timeSinceStaminaDepleted = 0f;
+    private float timeSinceStaminaDepleted = 0.0f;
+    private bool isSprintingAllowed = true;
+    private float delayBeforeRegen = 3.0f;
 
     [Header("Health Parameters")]
     private int maxHealth = 100;
@@ -122,25 +123,43 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (!_hasAnimator) return;
+
         float targetSpeed = _inputManager.Run ? _runSpeed : _walkSpeed;
+
         if (currentStamina == 0)
         {
-            //set the speed default to walk
+            // Check if we can start regenerating stamina
+            if (isSprintingAllowed)
+            {
+                timeSinceStaminaDepleted += Time.deltaTime;
+                if (timeSinceStaminaDepleted >= delayBeforeRegen)
+                {
+                    isSprintingAllowed = false;
+                    currentStamina = maxStamina; // Fully regenerate stamina when the timer is met
+                }
+            }
+            // Set the speed default to walk
             targetSpeed = _walkSpeed;
-        }
-        if (targetSpeed == _runSpeed)
-        {
-            //Depletion of stamina
-            float staminaDepletion = staminaDepletionRate * Time.deltaTime * scaleFactor;
-            currentStamina = Mathf.Max(0, currentStamina - staminaDepletion);
         }
         else
         {
-            //Regenerate stamina
-            float staminaRegen = staminaRegenRate * Time.deltaTime * scaleFactor;
-            currentStamina = Mathf.Min(maxStamina, currentStamina + staminaRegen);
-        }
+            // Reset the time and allow sprinting
+            timeSinceStaminaDepleted = 0.0f;
+            isSprintingAllowed = true;
 
+            if (targetSpeed == _runSpeed)
+            {
+                // Depletion of stamina
+                float staminaDepletion = staminaDepletionRate * Time.deltaTime * scaleFactor;
+                currentStamina = Mathf.Max(0, currentStamina - staminaDepletion);
+            }
+            else
+            {
+                // Regenerate stamina
+                float staminaRegen = staminaRegenRate * Time.deltaTime * scaleFactor;
+                currentStamina = Mathf.Min(maxStamina, currentStamina + staminaRegen);
+            }
+        }
         if (_inputManager.Crouch) targetSpeed = 1.5f;
         if (_inputManager.Move == Vector2.zero) targetSpeed = 0;
 

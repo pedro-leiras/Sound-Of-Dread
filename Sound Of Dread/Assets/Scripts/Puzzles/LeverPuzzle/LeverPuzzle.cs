@@ -34,6 +34,37 @@ public class LeverPuzzle : MonoBehaviour
                         }
                     }
                 }
+                if (lever.LeverID == 2 && lever.leverState == 2)
+                {
+                    foreach (DoorController door in doors)
+                    {
+                        if (door.doorID == 2)
+                        {
+                            door.lockStatus = 0;
+                        }
+                    }
+                }
+                if (lever.LeverID == 3 && lever.leverState == 2)
+                {
+                    foreach (DoorController door in doors)
+                    {
+                        if (door.doorID == 3)
+                        {
+                            door.lockStatus = 0;
+                        }
+                    }
+                }
+                if (lever.LeverID == 4 && lever.leverState == 2)
+                {
+                    foreach (DoorController door in doors)
+                    {
+                        if (door.doorID == 4)
+                        {
+                            door.lockStatus = 0;
+                        }
+                    }
+                }
+
                 if (lever.leverState != 2)
                 {
                     allLeversInState2 = false;

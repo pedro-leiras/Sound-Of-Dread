@@ -6,7 +6,7 @@ public class TimePuzzle : MonoBehaviour
 {
     private bool firstPlateActivated = false;
     private bool secondPlateActivated = false;
-    private float timer = 30f;
+    private float timer = 90f;
     public bool Level2Finish = false;
     public DoorController[] doors;
 
@@ -16,8 +16,8 @@ public class TimePuzzle : MonoBehaviour
         {
             if (firstPlateActivated)
             { 
-
                 timer -= Time.deltaTime;
+                Debug.Log(timer);
                 if (timer <= 0)
                 {
                     Debug.Log("Time is up");

@@ -7,31 +7,18 @@ public class LetterPuzzle : MonoBehaviour
     // Assuming you have five cubes with unique IDs
     public int cubeId;
     public string notePrefix = "letterDisplay";
-    [SerializeField] private bool firstLetter = false;
-    [SerializeField] private bool secondLetter = false;
-    [SerializeField] private bool thirdLetter = false;
-    [SerializeField] private bool fourthLetter = false;
-    [SerializeField] private bool fifthLetter = false;
-    private bool letterPuzzleComplete = false;
     public DoorController[] doors;
+
+    public LPuzzle lPuzzle;
+
+
+    private void Awake()
+    {
+        lPuzzle = FindObjectOfType<LPuzzle>();
+    }
 
     public void Update()
     {
-        if (letterPuzzleComplete == false)
-        {
-            if (firstLetter && secondLetter && thirdLetter && fourthLetter && fifthLetter)
-            {
-                letterPuzzleComplete = true;
-                foreach (DoorController door in doors)
-                {
-                    if (door.doorID == 20)
-                    {
-                        door.lockStatus = 0;
-                        door.OpenDoor();
-                    }
-                }
-            }
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,7 +30,7 @@ public class LetterPuzzle : MonoBehaviour
             if (letter != null)
             {
                 letter.gameObject.SetActive(true);
-                firstLetter = true;
+                lPuzzle.letters += 1;
             }
         }
         else if (other.gameObject.name == "letterO" && cubeId == 1)
@@ -53,7 +40,7 @@ public class LetterPuzzle : MonoBehaviour
             if (letter != null)
             {
                 letter.gameObject.SetActive(true);
-                secondLetter = true;
+                lPuzzle.letters += 1;
             }
         }
         else if (other.gameObject.name == "letterU" && cubeId == 2)
@@ -63,7 +50,7 @@ public class LetterPuzzle : MonoBehaviour
             if (letter != null)
             {
                 letter.gameObject.SetActive(true);
-                thirdLetter = true;
+                lPuzzle.letters += 1;
             }
         }
         else if (other.gameObject.name == "letterN" && cubeId == 3)
@@ -73,7 +60,7 @@ public class LetterPuzzle : MonoBehaviour
             if (letter != null)
             {
                 letter.gameObject.SetActive(true);
-                fourthLetter = true;
+                lPuzzle.letters += 1;
             }
         }
         else if (other.gameObject.name == "letterD" && cubeId == 4)
@@ -83,7 +70,7 @@ public class LetterPuzzle : MonoBehaviour
             if (letter != null)
             {
                 letter.gameObject.SetActive(true);
-                fifthLetter = true;
+                lPuzzle.letters += 1;
             }
         }
     }

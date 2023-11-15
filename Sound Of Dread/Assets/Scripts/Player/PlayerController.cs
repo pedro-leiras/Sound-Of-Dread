@@ -54,9 +54,9 @@ public class PlayerController : MonoBehaviour
     [Header("Stamina Parameters")]
     public float maxStamina = 100.0f;
     public float currentStamina = 100.0f;
-    public float staminaDepletionRate = 20.0f;
+    public float staminaDepletionRate = 10.0f;
     public float staminaRegenRate = 10.0f;
-    float scaleFactor = 3.0f;
+    float scaleFactor = 2.0f;
     private float timeSinceStaminaDepleted = 0.0f;
     private bool isSprintingAllowed = true;
     private float delayBeforeRegen = 3.0f;

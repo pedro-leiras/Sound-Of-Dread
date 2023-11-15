@@ -42,6 +42,10 @@ public class LeverPuzzle : MonoBehaviour
                         {
                             door.lockStatus = 0;
                         }
+                        if (door.doorID == 6)
+                        {
+                            door.lockStatus = 0;
+                        }
                     }
                 }
                 if (lever.LeverID == 3 && lever.leverState == 2)

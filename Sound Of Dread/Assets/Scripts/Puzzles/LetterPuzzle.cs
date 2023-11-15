@@ -7,12 +7,13 @@ public class LetterPuzzle : MonoBehaviour
     // Assuming you have five cubes with unique IDs
     public int cubeId;
     public string notePrefix = "letterDisplay";
-    private bool firstLetter = false;
-    private bool secondLetter = false;
-    private bool thirdLetter = false;
-    private bool fourthLetter = false;
-    private bool fifthLetter = false;
+    [SerializeField] private bool firstLetter = false;
+    [SerializeField] private bool secondLetter = false;
+    [SerializeField] private bool thirdLetter = false;
+    [SerializeField] private bool fourthLetter = false;
+    [SerializeField] private bool fifthLetter = false;
     private bool letterPuzzleComplete = false;
+    public DoorController[] doors;
 
     public void Update()
     {
@@ -21,6 +22,14 @@ public class LetterPuzzle : MonoBehaviour
             if (firstLetter && secondLetter && thirdLetter && fourthLetter && fifthLetter)
             {
                 letterPuzzleComplete = true;
+                foreach (DoorController door in doors)
+                {
+                    if (door.doorID == 20)
+                    {
+                        door.lockStatus = 0;
+                        door.OpenDoor();
+                    }
+                }
             }
         }
     }

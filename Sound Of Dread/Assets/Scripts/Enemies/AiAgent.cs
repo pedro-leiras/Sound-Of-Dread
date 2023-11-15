@@ -48,6 +48,8 @@ public class AiAgent : MonoBehaviour{
     [SerializeField] public bool isAttackable = false;
     [SerializeField] public int agentHP = 100;
 
+    public DoorController[] doors;
+
     void Start(){
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
@@ -87,7 +89,21 @@ public class AiAgent : MonoBehaviour{
         //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Object") && isAttackable){
             agentHP -= 10;
-            if (agentHP == 0) isDead = true;
+            if (agentHP < 1)
+            {
+                foreach (DoorController door in doors)
+                {
+                    if (door.doorID == 21)
+                    {
+                        door.lockStatus = 0;
+                    }
+                    if (door.doorID == 22)
+                    {
+                        door.lockStatus = 0;
+                    }
+                }
+                isDead = true;
+            }
         }
     }
 }

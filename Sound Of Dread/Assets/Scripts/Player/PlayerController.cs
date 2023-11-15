@@ -103,17 +103,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(isDead == false) { 
+        if (isDead == false)
+        {
             Move();
             HandleCrouch();
-
-
-            //Wait 8 seconds for player to regenerate
-            if (Time.time - lastDamageTime >= regenDelay)
-            {
-                HandleHealth();
-            }
         }
+        if (currentHealth != 100)
+        {
+            HandleHealth();
+        }
+
     }
 
     private void LateUpdate()
@@ -124,7 +123,6 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         if (!_hasAnimator) return;
-
         float targetSpeed = _inputManager.Run ? _runSpeed : _walkSpeed;
 
         if (currentStamina == 0)
@@ -188,12 +186,12 @@ public class PlayerController : MonoBehaviour
         var Mouse_X = _inputManager.Look.x;
         var Mouse_Y = _inputManager.Look.y;
 
-        
+
         Camera.position = CameraRoot.position;
         Camera.rotation = CameraRoot.rotation;
 
 
-        
+
 
         if (!isDead)
         {
@@ -207,7 +205,7 @@ public class PlayerController : MonoBehaviour
         {
             Camera.localRotation = Quaternion.Euler(lastXRotation, 0, 0);
         }
-        
+
 
     }
 
@@ -230,22 +228,30 @@ public class PlayerController : MonoBehaviour
         }
         else if (currentHealth <= 0)
         {
-            //Player morreu
+            HandleHealth();
+        }
+    }
+
+    public void RegenerateHealth()
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += regenAmount;
+            currentHealth = Mathf.Min(currentHealth, maxHealth);
         }
     }
 
     public void HandleHealth()
     {
         //Regenerate health
-        if (currentHealth > 0)
+        if (currentHealth > 1)
         {
-            if (currentHealth < maxHealth)
+            if (Time.time - lastDamageTime >= regenDelay)
             {
-                currentHealth += regenAmount;
-                currentHealth = Mathf.Min(currentHealth, maxHealth);
+                RegenerateHealth();
             }
         }
-        else
+        else if (currentHealth < 1)
         {
             //stops the player movement
             _currentVelocity.x = 0;
@@ -256,7 +262,7 @@ public class PlayerController : MonoBehaviour
 
             isDead = true;
             _animator.SetBool(_deathHash, true);
-            
+
 
             //Gets what current leven we are on
             string currentLevel = GetCurrentLevelName();

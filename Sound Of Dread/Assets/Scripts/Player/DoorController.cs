@@ -56,8 +56,16 @@ public class DoorController : MonoBehaviour
                 //play audio closing door
             }
         }
+    }
 
-        
+    public void OpenDoor()
+    {
+        animator.SetInteger("State", 2);
+    }
+
+    public void CloseDoor()
+    {
+        animator.SetInteger("State", 1);
     }
 
 }

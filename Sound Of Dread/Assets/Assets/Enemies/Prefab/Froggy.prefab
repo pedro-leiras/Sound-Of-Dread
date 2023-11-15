@@ -555,7 +555,6 @@ GameObject:
   - component: {fileID: 3383338449835052222}
   - component: {fileID: 5017149027049690827}
   - component: {fileID: 228924959803282050}
-  - component: {fileID: 938050921253322390}
   m_Layer: 7
   m_Name: Froggy
   m_TagString: Enemy
@@ -640,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d79faf45573d048be069dcec5ea9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialState: 0
+  initialState: 1
   navMeshAgent: {fileID: 0}
   animator: {fileID: 0}
   playerTranform: {fileID: 0}
@@ -697,22 +696,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &938050921253322390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3478182403542952962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1fc0712bc2b9b49a3e2475c364a839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaveEffectPrefab: {fileID: 1490282753510958588, guid: 1cdc25e4134d49540aa5e04ddb0cd155,
-    type: 3}
-  durationFS: 1
-  sizeFS: 10
 --- !u!1 &3600986470150953111
 GameObject:
   m_ObjectHideFlags: 0

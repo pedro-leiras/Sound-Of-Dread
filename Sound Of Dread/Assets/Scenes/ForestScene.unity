@@ -11575,15 +11575,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 294628192828780308, guid: eb367efadf8b84a46b28fac97a583b98,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 294628192828780311, guid: eb367efadf8b84a46b28fac97a583b98,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.590289
+      objectReference: {fileID: 0}
+    - target: {fileID: 294628192828780311, guid: eb367efadf8b84a46b28fac97a583b98,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.164
+      objectReference: {fileID: 0}
     - target: {fileID: 294628192828780311, guid: eb367efadf8b84a46b28fac97a583b98,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.572
+      value: -5.723
       objectReference: {fileID: 0}
     - target: {fileID: 294628193232129560, guid: eb367efadf8b84a46b28fac97a583b98,
         type: 3}
       propertyPath: m_Name
       value: LevelManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 294628193232129561, guid: eb367efadf8b84a46b28fac97a583b98,
+        type: 3}
+      propertyPath: levelToChange
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 294628193232129563, guid: eb367efadf8b84a46b28fac97a583b98,
         type: 3}

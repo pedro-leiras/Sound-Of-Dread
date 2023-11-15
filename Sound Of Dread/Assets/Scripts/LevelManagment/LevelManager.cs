@@ -4,10 +4,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour{
     public enum Level{
         ForestScene,
-        InsideLevel,
-        OutsideLevel,
-        Pavilion,
-        Church
+        Map
     }
 
     public Level levelToChange;
@@ -17,14 +14,8 @@ public class LevelManager : MonoBehaviour{
     private void OnTriggerEnter(Collider collision){
         if(levelToChange == Level.ForestScene)
             FadeToLevel(0);
-        else if(levelToChange == Level.InsideLevel)
+        else if(levelToChange == Level.Map)
             FadeToLevel(1);
-        else if(levelToChange == Level.OutsideLevel)
-            FadeToLevel(2);
-        else if(levelToChange == Level.Pavilion)
-            FadeToLevel(3);
-        else if(levelToChange == Level.Church)
-            FadeToLevel(4);
     }   
 
     public void FadeToLevel(int levelIndex){

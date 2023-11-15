@@ -18,6 +18,7 @@ public class AiStatePoiting : AiState{
         // mantem a sua posicao enquanto ataca
         agent.agentSpeed = 0.0f;
         agent.source.clip = agent.pointingClip;
+        agent.animator.SetFloat(agent.transitionAnimation, originalAnimationValue);
     }
 
     public void Exit(AiAgent agent){
@@ -25,10 +26,6 @@ public class AiStatePoiting : AiState{
     }
 
     public void Update(AiAgent agent){
-        // calculos para a animacao do enemy ser mais smooth
-        float currentValue = agent.animator.GetFloat(agent.transitionAnimation);
-        float newValue = Mathf.Lerp(currentValue, originalAnimationValue, Time.deltaTime * 2.0f);
-
-        agent.animator.SetFloat(agent.transitionAnimation, newValue);
+        
     }
 }

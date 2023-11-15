@@ -25,13 +25,15 @@ public class SobelController : MonoBehaviour
             // Process the detected objects
             foreach (Collider collider in colliders)
             {
-                collider.gameObject.layer = LayerMask.NameToLayer("Outlined");
-                for (int i = 0; i < collider.transform.childCount; i++)
-                {
-                    // Access each child's Transform component
-                    Transform childTransform = collider.transform.GetChild(i);
-                    // Change the layer of the child
-                    ChangeLayerRecursive(childTransform, "Outlined");
+                if(collider.gameObject.tag != "Player") { 
+                    collider.gameObject.layer = LayerMask.NameToLayer("Outlined");
+                    for (int i = 0; i < collider.transform.childCount; i++)
+                    {
+                        // Access each child's Transform component
+                        Transform childTransform = collider.transform.GetChild(i);
+                        // Change the layer of the child
+                        ChangeLayerRecursive(childTransform, "Outlined");
+                    }
                 }
             }
         }
@@ -60,10 +62,9 @@ public class SobelController : MonoBehaviour
     {
         canDraw = true;
         startPosition = initialPosition;
-        Debug.Log(initialPosition);
     }
 
-    void ChangeLayerRecursive(Transform currentTransform, string layerName)
+    public void ChangeLayerRecursive(Transform currentTransform, string layerName)
     {
         // Change the layer of the current object
         currentTransform.gameObject.layer = LayerMask.NameToLayer(layerName);

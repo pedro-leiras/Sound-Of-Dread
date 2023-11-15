@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Gravel Floor
   - ChangeLevel
+  - Stone Floor
   layers:
   - Default
   - TransparentFX

@@ -19,10 +19,11 @@ public class PlayerController : MonoBehaviour
     [Header("Footsteps")]
     public List<AudioClip> woodFS;
     public List<AudioClip> gravelFS;
+    public List<AudioClip> stoneFS;
 
     enum FSMaterial
     {
-        Wood, Gravel, Empty
+        Wood, Gravel, Stone, Empty
     }
 
     private AudioSource AudioSource;
@@ -328,6 +329,10 @@ public class PlayerController : MonoBehaviour
             {
                 return FSMaterial.Gravel;
             }
+            if (hit.collider.CompareTag("Stone Floor"))
+            {
+                return FSMaterial.Stone;
+            }
         }
 
         return FSMaterial.Empty;
@@ -345,6 +350,9 @@ public class PlayerController : MonoBehaviour
                 break;
             case FSMaterial.Gravel:
                 clip = gravelFS[UnityEngine.Random.Range(0, gravelFS.Count)];
+                break;
+            case FSMaterial.Stone:
+                clip = stoneFS[UnityEngine.Random.Range(0, stoneFS.Count)];
                 break;
             case FSMaterial.Empty: 
                 break;

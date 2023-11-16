@@ -12,9 +12,14 @@ public class PickUpControllerOutside : MonoBehaviour
 
     public bool equipped;
     public static bool slotFull;
+    
+    private Vector3 initialPosition;
+    public DoorTrigger doorTrigger;
+    private bool isTriggered;
 
     private void Start()
     {
+        initialPosition = transform.position;
 
         if (!equipped)
         {
@@ -87,5 +92,28 @@ public class PickUpControllerOutside : MonoBehaviour
         rb.velocity = player.GetComponent<Rigidbody>().velocity;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "LevelChurchFloor" && doorTrigger.IsTriggeredCheck()) StartCoroutine(ReturnToHand());
+    }
+    
+    private IEnumerator ReturnToHand(){
+        gameObject.layer = LayerMask.NameToLayer("Outlined");
+        
+        float elapsedTime = 0f;
+        float returnTime = 1.5f;
 
+        while (elapsedTime < returnTime)
+        {
+            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime / returnTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = initialPosition;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        
+        PickUp();
+    }
 }

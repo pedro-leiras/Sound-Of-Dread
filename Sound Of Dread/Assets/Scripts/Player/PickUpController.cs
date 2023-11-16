@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PickUpController : MonoBehaviour
 {
@@ -16,9 +18,14 @@ public class PickUpController : MonoBehaviour
     public WaveController waveController;
     public Vector3 collisionPos;
     public bool isThrown;
-
+    private Vector3 initialPosition;
+    public DoorTrigger doorTrigger;
+    private bool isTriggered;
+    
     private void Start()
     {
+        initialPosition = transform.position;
+        
         isThrown = false;
         if (!equipped)
         {
@@ -101,5 +108,23 @@ public class PickUpController : MonoBehaviour
             isThrown = true;
         }
         
+        if(collision.gameObject.name == "LevelChurchFloor" && doorTrigger.IsTriggeredCheck()) StartCoroutine(ReturnToHand());
+    }
+    
+    private IEnumerator ReturnToHand(){
+        float elapsedTime = 0f;
+        float returnTime = 1.5f;
+
+        while (elapsedTime < returnTime)
+        {
+            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime / returnTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = initialPosition;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        PickUp();
     }
 }

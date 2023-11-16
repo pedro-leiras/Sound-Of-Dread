@@ -16,7 +16,7 @@ public class WaveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
         {
-            SpawnWaveEffect(transform.position);
+            //SpawnWaveEffect(transform.position);
         }
     }
 

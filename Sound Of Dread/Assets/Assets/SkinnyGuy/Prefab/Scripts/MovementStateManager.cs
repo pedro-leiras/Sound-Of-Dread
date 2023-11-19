@@ -85,6 +85,7 @@ public class MovementStateManager : MonoBehaviour
         anim.SetFloat("vInput", vInput);
         currentState.UpdateState(this);
     }
+
     public void SwitchState(MovementBaseState state)
     {
         currentState = state;

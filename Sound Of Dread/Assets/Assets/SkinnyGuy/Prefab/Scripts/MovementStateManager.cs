@@ -25,7 +25,7 @@ public class MovementStateManager : MonoBehaviour
     public CrouchState Crouch = new CrouchState();
     public RunState Run = new RunState();
 
-    public bool isDead = false;
+    public bool isDead;
     public int currentHealth;
     public int maxHealth = 100;
     private float regenDelay = 8f; // Time to wait for health regeneration ** mudei a regen delay para 8 para que estivesse mais balanceado com o dano do inimigo
@@ -45,6 +45,13 @@ public class MovementStateManager : MonoBehaviour
     public List<AudioClip> gravelFS;
     public List<AudioClip> stoneFS;
 
+    private int _deathHash;
+    public TimePuzzle timePuzzle;
+    public LeverPuzzle leverPuzzle;
+    public CheckpointManager checkpointManager;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,12 +60,21 @@ public class MovementStateManager : MonoBehaviour
         SwitchState(Idle);
         currentHealth = 100;
         AudioSource = GetComponent<AudioSource>();
+        isDead = false;
+        _deathHash = Animator.StringToHash("Death");
+
+        TimePuzzle timePuzzle = FindObjectOfType<TimePuzzle>();
+        LeverPuzzle leverPuzzle = FindObjectOfType<LeverPuzzle>();
+        CheckpointManager checkpointManager = FindObjectOfType<CheckpointManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetDirectionAndMove();
+        if (!isDead)
+        {
+            GetDirectionAndMove();
+        }
         Gravity();
 
         if (currentHealth != 100)
@@ -73,12 +89,13 @@ public class MovementStateManager : MonoBehaviour
     {
         currentState = state;
         currentState.EnterState(this);
+
     }
 
     void GetDirectionAndMove()
     {
-        hzInput = Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
+        hzInput = Input.GetAxisRaw("Horizontal");
+        vInput = Input.GetAxisRaw("Vertical");
 
         dir = transform.forward * vInput + transform.right * hzInput;
 
@@ -132,18 +149,16 @@ public class MovementStateManager : MonoBehaviour
         {
 
             isDead = true;
-
+            anim.SetBool(_deathHash, true);
 
             //Gets what current leven we are on
-            /*string currentLevel = GetCurrentLevelName();
+            string currentLevel = GetCurrentLevelName();
 
             //Respawn
-            StartCoroutine(RespawnAfterDelay(10f, currentLevel));*/
+            StartCoroutine(RespawnAfterDelay(10f, currentLevel));
 
         }
     }
-
-
     public void RegenerateHealth()
     {
         if (currentHealth < maxHealth)
@@ -152,7 +167,6 @@ public class MovementStateManager : MonoBehaviour
             currentHealth = Mathf.Min(currentHealth, maxHealth);
         }
     }
-
     private FSMaterial SurfaceSelect()
     {
         RaycastHit hit;
@@ -176,7 +190,6 @@ public class MovementStateManager : MonoBehaviour
 
         return FSMaterial.Empty;
     }
-
     private void PlayFootstep()
     {
         AudioClip clip = null;
@@ -207,5 +220,46 @@ public class MovementStateManager : MonoBehaviour
             AudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
             AudioSource.Play();
         }
+    }
+    private IEnumerator RespawnAfterDelay(float delay, string levelName)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Find the appropriate checkpoint for the current level
+        Transform respawnPoint = GetRespawnPointForLevel(levelName);
+
+        // Reset player's health and position
+        currentHealth = maxHealth;
+        transform.position = respawnPoint.position;
+        isDead = false;
+        anim.SetBool(_deathHash, false);
+
+    }
+    private Transform GetRespawnPointForLevel(string levelName)
+    {
+        foreach (var checkpoint in CheckpointManager.instance.checkpoints)
+        {
+            if (checkpoint.levelName == levelName)
+            {
+                return checkpoint.spawnPoint;
+            }
+        }
+
+
+        return transform;
+    }
+    private string GetCurrentLevelName()
+    {
+        // Determine the current level
+        if (timePuzzle.Level2Finish)
+        {
+            return "Level2";
+        }
+        else if (leverPuzzle.Level1Finish)
+        {
+            return "Level1";
+        }
+
+        return "Checkpoint1";
     }
 }

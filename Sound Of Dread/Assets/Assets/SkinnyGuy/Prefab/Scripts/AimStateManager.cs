@@ -19,11 +19,13 @@ public class AimStateManager : MonoBehaviour
     [SerializeField] private float BottomLimit = 50f;
     [SerializeField] private float MouseSensitivity = 21.9f;
     private Rigidbody _playerRigidbody;
+    public MovementStateManager movement;
     // Start is called before the first frame update
     void Start()
     {
         _inputManager = GetComponent<New>();
         _playerRigidbody = GetComponent<Rigidbody>();
+        MovementStateManager movement = FindObjectOfType<MovementStateManager>();
     }
 
     // Update is called once per frame
@@ -31,32 +33,26 @@ public class AimStateManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!_inputManager)
-        {
-            Debug.Log("tu");
-        }
 
         var Mouse_X = _inputManager.Look.x;
         var Mouse_Y = _inputManager.Look.y;
-
-
         Camera.position = CameraRoot.position;
         Camera.rotation = CameraRoot.rotation;
 
 
 
 
-        //if (!isDead)
-        //{
+        if (!movement.isDead)
+        {
             _xRotation -= Mouse_Y * MouseSensitivity * Time.smoothDeltaTime;
             _xRotation = Mathf.Clamp(_xRotation, UpperLimit, BottomLimit);
             lastXRotation = _xRotation;
             Camera.localRotation = Quaternion.Euler(_xRotation, 0, 0);
             _playerRigidbody.MoveRotation(_playerRigidbody.rotation * Quaternion.Euler(0, Mouse_X * MouseSensitivity * Time.smoothDeltaTime, 0));
-        //}
-        /*else
+        }
+        else
         {
             Camera.localRotation = Quaternion.Euler(lastXRotation, 0, 0);
-        }*/
+        }
     }
 }

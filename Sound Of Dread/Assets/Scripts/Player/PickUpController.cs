@@ -21,9 +21,12 @@ public class PickUpController : MonoBehaviour
     private Vector3 initialPosition;
     public DoorTrigger doorTrigger;
     private bool isTriggered;
-    
+    private AudioSource audiosource;
+
+
     private void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         initialPosition = transform.position;
         
         isThrown = false;
@@ -106,6 +109,7 @@ public class PickUpController : MonoBehaviour
             collisionPos = collision.contacts[0].point;
             waveController.SpawnWaveEffect(collisionPos);
             isThrown = true;
+            audiosource.Play();
         }
         
         if(collision.gameObject.name == "LevelChurchFloor" && doorTrigger.IsTriggeredCheck()) StartCoroutine(ReturnToHand());

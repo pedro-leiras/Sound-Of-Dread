@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /*
@@ -71,6 +72,8 @@ public class AiStateChasePlayer : AiState{
         if (agent.isDead) agent.stateMachine.ChangeState(AiStateId.Dead);
 
         if (!agent.source.isPlaying) agent.source.PlayScheduled(agent.delayInSecondsChase);
+    
+        IsCloseToDoor(agent);
     }
 
     private static bool CanSeePlayer(AiAgent agent){
@@ -94,6 +97,18 @@ public class AiStateChasePlayer : AiState{
         if (Physics.Raycast(agent.transform.position, agent.playerTranform.position - agent.transform.position, out hit)
             && Vector3.Distance(agent.transform.position, agent.playerTranform.position) >= agent.agentView)
             if (hit.collider.CompareTag("Wall")) return true;
+        return false;
+    }
+
+    private bool IsCloseToDoor(AiAgent agent){
+        Ray ray = new Ray(agent.transform.position, agent.transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, agent.agentStoppingDistance) && hit.collider.CompareTag("door")){
+            Physics.IgnoreCollision(hit.collider, agent.agentCollider);
+            hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
+            return true;
+        } 
+        
         return false;
     }
 }

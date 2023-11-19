@@ -54,5 +54,19 @@ public class AiStateChaseSound : AiState{
         if (agent.isDead) agent.stateMachine.ChangeState(AiStateId.Dead);
 
         if (!agent.source.isPlaying) agent.source.PlayScheduled(agent.delayInSecondsChase);
+    
+        IsCloseToDoor(agent);
+    }
+
+    private bool IsCloseToDoor(AiAgent agent){
+        Ray ray = new Ray(agent.transform.position, agent.transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, agent.agentStoppingDistance) && hit.collider.CompareTag("door")){
+            Physics.IgnoreCollision(hit.collider, agent.agentCollider);
+            hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
+            return true;
+        } 
+        
+        return false;
     }
 }

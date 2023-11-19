@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2591519198681072769}
   - component: {fileID: 7234518319712499920}
   - component: {fileID: 8286977284328721026}
+  - component: {fileID: 5465453601962921525}
   m_Layer: 7
   m_Name: Wood_Door_2_R Variant
   m_TagString: door
@@ -137,7 +138,21 @@ MonoBehaviour:
   player: {fileID: 0}
   fpsCam: {fileID: 0}
   pickUpRange: 3
+  animator: {fileID: 0}
   lockStatus: 0
+--- !u!65 &5465453601962921525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2733429686558022106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.72, y: 2.3408577, z: 0.63}
+  m_Center: {x: 0.5664801, y: 1.1704164, z: -0.02865665}
 --- !u!1 &6626626692665614344
 GameObject:
   m_ObjectHideFlags: 0

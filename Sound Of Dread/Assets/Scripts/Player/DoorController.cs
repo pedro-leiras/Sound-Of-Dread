@@ -9,7 +9,7 @@ public class DoorController : MonoBehaviour
     public Transform player, fpsCam;
 
     public float pickUpRange;
-    private Animator animator;
+    public Animator animator;
     public int lockStatus = 1; // 0: Unlocked, 1: Locked
 
     private void Start()
@@ -61,6 +61,7 @@ public class DoorController : MonoBehaviour
     public void OpenDoor()
     {
         animator.SetInteger("State", 2);
+        StartCoroutine(CloseDoorAfterDelay(3f));
     }
 
     public void CloseDoor()
@@ -68,4 +69,8 @@ public class DoorController : MonoBehaviour
         animator.SetInteger("State", 1);
     }
 
+    private IEnumerator CloseDoorAfterDelay(float delay){
+        yield return new WaitForSeconds(delay);
+        CloseDoor();
+    }
 }

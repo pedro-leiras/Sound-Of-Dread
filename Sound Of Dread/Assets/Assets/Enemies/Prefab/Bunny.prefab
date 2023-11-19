@@ -516,6 +516,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3882815004909715561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966526528737822155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1fc0712bc2b9b49a3e2475c364a839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveEffectPrefab: {fileID: 1490282753510958588, guid: 1cdc25e4134d49540aa5e04ddb0cd155,
+    type: 3}
+  durationFS: 1
+  sizeFS: 10
 --- !u!114 &8051783975608599785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,19 +579,4 @@ MonoBehaviour:
   listeningArea: 4
   isAttackable: 1
   agentHP: 10
---- !u!114 &3882815004909715561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966526528737822155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f1fc0712bc2b9b49a3e2475c364a839, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaveEffectPrefab: {fileID: 1490282753510958588, guid: 1cdc25e4134d49540aa5e04ddb0cd155,
-    type: 3}
-  durationFS: 1
-  sizeFS: 10
+  doors: []

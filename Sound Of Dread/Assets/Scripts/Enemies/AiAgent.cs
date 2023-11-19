@@ -8,7 +8,7 @@ public class AiAgent : MonoBehaviour{
     public NavMeshAgent navMeshAgent;
     public Animator animator;
     public Transform playerTranform;
-    public PlayerController player;
+    public MovementStateManager player;
     public Transform[] points;
     public CapsuleCollider agentCollider;
     public AudioSource source;
@@ -58,7 +58,7 @@ public class AiAgent : MonoBehaviour{
         //nossa state machina que vai gerir os estados
         stateMachine = new AiStateMachine(this);
         if (agentCollider == null) agentCollider = GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider>();
-        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementStateManager>();
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
         GameObject pucObject = GameObject.FindGameObjectWithTag("Object");
         if (pucObject != null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();

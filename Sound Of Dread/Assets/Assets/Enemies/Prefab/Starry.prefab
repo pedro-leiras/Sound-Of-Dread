@@ -466,6 +466,7 @@ MonoBehaviour:
   listeningArea: 14
   isAttackable: 0
   agentHP: 100
+  doors: []
 --- !u!195 &4384149594834247353
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Diagnostics.Tracing;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -64,10 +66,11 @@ public class AiAgent : MonoBehaviour{
         if (pucObject != null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();
         else puc = null;
         source = gameObject.AddComponent<AudioSource>();
-        source.volume = 0.2f;
+        source.volume = 0.13f;
         source.spatialBlend = 1.0f;
         source.rolloffMode = AudioRolloffMode.Linear;
-        source.maxDistance = 15.0f;
+        source.maxDistance = 10.0f;
+        source.playOnAwake = false;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());
         stateMachine.RegisterState(new AiStatePatrol());
@@ -86,7 +89,6 @@ public class AiAgent : MonoBehaviour{
     }
 
     private void OnCollisionEnter(Collision collision){
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
         if (collision.gameObject.CompareTag("Object") && isAttackable){
             agentHP -= 10;
             if (agentHP < 1)

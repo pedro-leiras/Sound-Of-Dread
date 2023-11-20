@@ -16,8 +16,8 @@ public class PlayerTransition : MonoBehaviour
         Transform trans = playerInside.transform;
         ChangeLayerRecursive(trans, layer);
         Transform geo = trans.Find("Geo");
-        Transform skin = geo.Find("Body_LOD0");
-        Transform clothes = geo.Find("Clothes_LOD0");
+        Transform skin = geo.Find("Body_LOD1");
+        Transform clothes = geo.Find("Clothes_LOD1");
         Transform eyes = geo.Find("Eyes");
         playerInside.GetComponent<Animator>().runtimeAnimatorController = anim as RuntimeAnimatorController;
         skin.gameObject.GetComponent<Renderer>().material = MaterialSkin;

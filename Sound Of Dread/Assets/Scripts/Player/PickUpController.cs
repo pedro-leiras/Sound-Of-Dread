@@ -80,7 +80,8 @@ public class PickUpController : MonoBehaviour
         rb.isKinematic = false;
         coll.isTrigger = false;
 
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        //rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        rb.velocity = player.forward * dropUpwardForce + player.up * dropForwardForce;
 
         rb.AddForce(-fpsCam.forward * dropForwardForce * 0.5f, ForceMode.Impulse);
         rb.AddForce(fpsCam.up * dropUpwardForce * 0.5f, ForceMode.Impulse);
@@ -99,7 +100,7 @@ public class PickUpController : MonoBehaviour
         rb.isKinematic = false;
         coll.isTrigger = false;
 
-        rb.velocity = player.GetComponent<Rigidbody>().velocity;
+        rb.velocity = -player.up * dropForwardForce;
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -22,7 +22,7 @@ public class LPuzzle : MonoBehaviour
                 if (door.doorID == 20)
                 {
                     door.lockStatus = 0;
-                    door.OpenDoor();
+                    door.OpenChurchDoor();
                 }
             }
         }

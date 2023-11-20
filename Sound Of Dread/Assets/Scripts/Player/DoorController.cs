@@ -72,5 +72,13 @@ public class DoorController : MonoBehaviour
     private IEnumerator CloseDoorAfterDelay(float delay){
         yield return new WaitForSeconds(delay);
         CloseDoor();
+
     }
+
+    public void OpenChurchDoor()
+    {
+        animator.SetInteger("State", 2);
+        lockStatus = 1;
+    }
+
 }

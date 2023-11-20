@@ -6,16 +6,26 @@ public class TimePuzzle : MonoBehaviour
 {
     private bool firstPlateActivated = false;
     private bool secondPlateActivated = false;
-    private float timer = 90f;
+    private float timer = 60f;
     public bool Level2Finish = false;
     public DoorController[] doors;
-
+    public WaveController waveController;
+    private float elapsed = 0f;
+    public AudioSource plateTicking;
     private void Update()
     {
         if (!Level2Finish)
         {
             if (firstPlateActivated)
-            { 
+            {
+                elapsed += Time.deltaTime;
+                
+                if (elapsed >= 1f)
+                {
+                    elapsed = elapsed % 1f;
+                    waveController.SpawnFootSteepsWaveEffect();
+                }
+
                 timer -= Time.deltaTime;
                 Debug.Log(timer);
                 if (timer <= 0)
@@ -32,6 +42,7 @@ public class TimePuzzle : MonoBehaviour
         if (plateID == 0)
         {
             firstPlateActivated = true;
+            plateTicking.Play();
         }
         else if (plateID == 1)
         {
@@ -39,6 +50,7 @@ public class TimePuzzle : MonoBehaviour
             if (firstPlateActivated && secondPlateActivated)
             {
                 Debug.Log("You win");
+                plateTicking.Stop();
                 foreach (DoorController door in doors)
                 {
                     if(door.doorID == 5)
@@ -55,6 +67,7 @@ public class TimePuzzle : MonoBehaviour
     {
         firstPlateActivated = false;
         secondPlateActivated = false;
-        timer = 30f;
+        timer = 60f;
+        elapsed = 0f;
     }
 }

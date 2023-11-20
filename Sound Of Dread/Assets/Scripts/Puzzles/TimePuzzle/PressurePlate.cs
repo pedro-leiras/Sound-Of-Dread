@@ -15,8 +15,4 @@ public class PressurePlate : MonoBehaviour
             timePuzzle.PressurePlateActivated(plateID);
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-    }
 }

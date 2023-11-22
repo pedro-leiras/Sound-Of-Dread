@@ -13,6 +13,7 @@ TagManager:
   - Gravel Floor
   - ChangeLevel
   - Stone Floor
+  - ObjectInfinite
   layers:
   - Default
   - TransparentFX

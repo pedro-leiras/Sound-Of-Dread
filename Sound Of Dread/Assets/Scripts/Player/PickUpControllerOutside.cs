@@ -19,8 +19,6 @@ public class PickUpControllerOutside : MonoBehaviour
 
     private void Start()
     {
-        initialPosition = transform.position;
-
         if (!equipped)
         {
             rb.isKinematic = false;
@@ -92,28 +90,7 @@ public class PickUpControllerOutside : MonoBehaviour
         rb.velocity = -player.up * dropForwardForce;
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "LevelChurchFloor" && doorTrigger.IsTriggeredCheck()) StartCoroutine(ReturnToHand());
-    }
-    
-    private IEnumerator ReturnToHand(){
-        gameObject.layer = LayerMask.NameToLayer("Outlined");
-        
-        float elapsedTime = 0f;
-        float returnTime = 1.5f;
-
-        while (elapsedTime < returnTime)
-        {
-            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime / returnTime);
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        transform.position = initialPosition;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        
-        PickUp();
+    private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.name == "LevelChurchFloor" && doorTrigger.IsTriggeredCheck()) PickUp();
     }
 }

@@ -9,10 +9,9 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if (other.CompareTag("Player")){
             isTriggered = true;
-            GameObject.FindGameObjectWithTag("Object").layer = LayerMask.NameToLayer("Outlined");
+            GameObject.FindGameObjectWithTag("ObjectInfinite").layer = LayerMask.NameToLayer("Outlined");
             door.CloseDoor();
         }
     }

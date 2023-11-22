@@ -62,9 +62,12 @@ public class AiStateChaseSound : AiState{
         Ray ray = new Ray(agent.transform.position, agent.transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, agent.agentStoppingDistance) && hit.collider.CompareTag("door")){
-            Physics.IgnoreCollision(hit.collider, agent.agentCollider);
-            hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
-            return true;
+            if(hit.collider && agent.agentCollider){
+                Physics.IgnoreCollision(hit.collider, agent.agentCollider);
+                if(hit.collider.gameObject.GetComponent<DoorController>().lockStatus == 0)
+                    hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
+                return true;
+            }
         } 
         
         return false;

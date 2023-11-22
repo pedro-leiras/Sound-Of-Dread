@@ -72,7 +72,9 @@ public class AiStatePatrol : AiState{
         if (Physics.Raycast(ray, out hit, agent.agentStoppingDistance) && hit.collider.CompareTag("door")){
             if(hit.collider && agent.agentCollider){
                 Physics.IgnoreCollision(hit.collider, agent.agentCollider);
-                hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
+                if(hit.collider.gameObject.GetComponent<DoorController>().lockStatus == 0)
+                    hit.collider.gameObject.GetComponent<DoorController>().OpenDoor();
+                else current = 0;
                 return true;
             }
         } 

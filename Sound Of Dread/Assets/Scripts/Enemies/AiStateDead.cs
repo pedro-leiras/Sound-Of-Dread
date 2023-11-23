@@ -1,7 +1,6 @@
 /*
     aqui e feita a AI do dead state do monstro
 */
-using UnityEditor;
 using UnityEngine;
 
 public class AiStateDead : AiState{

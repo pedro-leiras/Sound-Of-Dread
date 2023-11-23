@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Diagnostics.Tracing;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +8,7 @@ public class AiAgent : MonoBehaviour{
     public Animator animator;
     public Transform playerTranform;
     public MovementStateManager player;
+    public GameObject container;
     public Transform[] points;
     public CapsuleCollider agentCollider;
     public AudioSource source;
@@ -27,7 +25,7 @@ public class AiAgent : MonoBehaviour{
     public AudioClip pointingClip;
     public float delayInSecondsPointing = 1f;
 
-    //onde vai come�ar a patrolhar
+    //onde vai começar a patrolhar
     [HideInInspector]
     public int startingPoint = 0;
     [HideInInspector]
@@ -59,12 +57,11 @@ public class AiAgent : MonoBehaviour{
         navMeshAgent.stoppingDistance = agentStoppingDistance;
         //nossa state machina que vai gerir os estados
         stateMachine = new AiStateMachine(this);
+        if (container == null) container = GameObject.FindGameObjectWithTag("Container");
+        if (puc == null) puc = container.GetComponentInChildren<PickUpController>();
         if (agentCollider == null) agentCollider = GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider>();
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementStateManager>();
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
-        GameObject pucObject = GameObject.FindGameObjectWithTag("Object");
-        if (pucObject != null) puc = GameObject.FindGameObjectWithTag("Object").GetComponent<PickUpController>();
-        else puc = null;
         source = gameObject.AddComponent<AudioSource>();
         source.volume = 0.13f;
         source.spatialBlend = 1.0f;

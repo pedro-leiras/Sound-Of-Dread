@@ -1,9 +1,7 @@
-using System.Collections;
-using UnityEngine;
-
 /*
     aqui e feita a AI do chase player state do monstro
 */
+using UnityEngine;
 
 public class AiStateChasePlayer : AiState{
     float timer = 0.0f;

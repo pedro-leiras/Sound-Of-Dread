@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class JumpScare : MonoBehaviour{
@@ -6,17 +7,21 @@ public class JumpScare : MonoBehaviour{
     public AudioSource audioSource;
     public bool isPlayed;
     public float gravity;
+    private bool isTriggered = false;
 
-    public void OnTriggerEnter(){
-        if(!isPlayed){
+    public void OnTriggerEnter(Collider other){
+        if(other.tag == "Player" && !isPlayed && !isTriggered){
             audioSource.PlayOneShot(audioSource.clip);
-            isPlayed = true;
+            
             Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
-            prefab.GetComponent<Rigidbody>().AddForce(Physics.gravity * gravity, ForceMode.Acceleration);
+            Rigidbody rigidbody = prefab.GetComponent<Rigidbody>();
+            rigidbody.AddForce(Vector3.down * 20f, ForceMode.VelocityChange);
+
+            isPlayed = true;
         }
     }
 
     public void OnTriggerExit(){
-        Destroy(this);
+        isTriggered = true;
     }
 }

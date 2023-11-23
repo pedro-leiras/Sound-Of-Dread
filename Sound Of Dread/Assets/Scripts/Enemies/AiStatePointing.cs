@@ -1,9 +1,6 @@
 /*
     aqui e feita a AI do pointing state do monstro
 */
-using UnityEditor;
-using UnityEngine;
-
 public class AiStatePoiting : AiState{
     private float originalAnimationValue;
 

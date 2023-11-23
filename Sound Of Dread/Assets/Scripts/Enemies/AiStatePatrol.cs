@@ -55,6 +55,7 @@ public class AiStatePatrol : AiState{
             agent.stateMachine.ChangeState(AiStateId.Attack);
 
         // distancia do objecto entre a posicao do enemy e a colisao do objecto
+        if (agent.puc == null) agent.puc = agent.container.GetComponentInChildren<PickUpController>();
         if (agent.puc != null && agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown)
             agent.stateMachine.ChangeState(AiStateId.ChaseSound);
 

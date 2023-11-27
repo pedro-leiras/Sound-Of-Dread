@@ -11,7 +11,7 @@ public class AimStateManager : MonoBehaviour
     float xAxis, yAxis;
     [SerializeField] private Transform CameraRoot;
     [SerializeField] private Transform Camera;
-    private New _inputManager;
+    private PlayerControlls _inputManager;
 
     private float _xRotation;
     private float lastXRotation;
@@ -23,7 +23,7 @@ public class AimStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _inputManager = GetComponent<New>();
+        _inputManager = GetComponent<PlayerControlls>();
         _playerRigidbody = GetComponent<Rigidbody>();
         MovementStateManager movement = FindObjectOfType<MovementStateManager>();
     }

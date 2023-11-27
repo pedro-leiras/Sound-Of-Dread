@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class CrouchState : MovementBaseState
 {
+    private bool isCrouching = false;
+    private bool crouchKeyPressed = false;
+
     public override void EnterState(MovementStateManager movement)
     {
         movement.anim.SetBool("Crouching", true);
+        isCrouching = true;
     }
 
     public override void UpdateState(MovementStateManager movement)
     {
-        if (Input.GetKey(KeyCode.LeftShift)) ExitState(movement, movement.Run);
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        crouchKeyPressed = Input.GetKey(KeyCode.LeftControl);
+
+        if (!crouchKeyPressed)
         {
-            if (movement.dir.magnitude < 0.1f) ExitState(movement, movement.Idle);
-            else ExitState(movement, movement.Walk);
+            if (isCrouching)
+            {
+                ExitState(movement, movement.Idle);
+            }
+            return;
         }
+
+        if (Input.GetKey(KeyCode.LeftShift)) ExitState(movement, movement.Run);
+
+        if (movement.dir.magnitude < 0.1f) ExitState(movement, movement.Idle);
+        else ExitState(movement, movement.Walk);
 
         if (movement.vInput < 0) movement.currentMoveSpeed = movement.crouchBackSpeed;
         else movement.currentMoveSpeed = movement.crouchSpeed;
@@ -24,7 +37,16 @@ public class CrouchState : MovementBaseState
 
     void ExitState(MovementStateManager movement, MovementBaseState state)
     {
-        movement.anim.SetBool("Crouching", false);
-        movement.SwitchState(state);
+        if (crouchKeyPressed && !isCrouching)
+        {
+            movement.anim.SetBool("Crouching", true);
+            isCrouching = true;
+        }
+        else if (!crouchKeyPressed && isCrouching)
+        {
+            movement.anim.SetBool("Crouching", false);
+            isCrouching = false;
+            movement.SwitchState(state);
+        }
     }
 }

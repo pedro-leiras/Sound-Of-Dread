@@ -6,10 +6,10 @@ public class DoorController : MonoBehaviour
 {
     public int doorID;
     public BoxCollider coll;
-    public Transform player, fpsCam;
-
-    public float pickUpRange;
-    public Animator animator;
+    public Transform player;
+    public Camera fpsCam;
+    public float interactionDistance = 3f;
+    private Animator animator;
     public int lockStatus = 1; // 0: Unlocked, 1: Locked
     public AudioClip openDoor;
     public AudioClip closeDoor;
@@ -23,48 +23,51 @@ public class DoorController : MonoBehaviour
     }
     private void Update()
     {
-        Vector3 distanceToPlayer = player.position - transform.position;
-        if (distanceToPlayer.magnitude <= pickUpRange && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (lockStatus == 0) { 
-                CheckDoor();
-            }
-            else
-            {
-                //audio locked door
-                audioSource.clip = lockedDoor;
-                audioSource.Play();
-            }
-            
-        }
+            Ray ray = fpsCam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit, interactionDistance))
+            {
+                if (hit.collider.gameObject.tag == "door")
+                {
+                    DoorController doorController = hit.collider.gameObject.GetComponent<DoorController>();
+                    if (lockStatus == 0)
+                    {
+                        CheckDoor(doorController);
+                    }
+                    else
+                    {
+                        //audio locked door
+                        audioSource.clip = lockedDoor;
+                        audioSource.Play();
+                    }
+                }
+            }
+        }
     }
 
-    private void CheckDoor()
+    private void CheckDoor(DoorController doorController)
     {
-        if (gameObject.tag == "door")
+        if (doorID == doorController.doorID)
         {
-            
             int stateValue = animator.GetInteger("State");
 
-            if (stateValue == 0) 
+            if (stateValue == 0)
             {
                 animator.SetInteger("State", 2); // open door default -> open
-                //play audio opening
             }
-            else if (stateValue == 1) 
+            else if (stateValue == 1)
             {
                 animator.SetInteger("State", 2); // open door closed-> open
-                //play audio opening
-                
             }
-            else if (stateValue == 2) 
+            else if (stateValue == 2)
             {
                 animator.SetInteger("State", 1); // close door
-                //play audio closing door
-                
             }
         }
+
     }
 
     public void OpenDoor()

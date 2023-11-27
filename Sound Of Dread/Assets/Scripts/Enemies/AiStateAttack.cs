@@ -34,7 +34,7 @@ public class AiStateAttack : AiState{
             // quando a animacao acabar e se o jogador nao estiver morto entao percorre
             if ((agent.player.currentHealth - agent.damage) > 0){
                 // verifica se a vida do player menos o dano do enimigo e menor que 0 antes de atacar
-                agent.player.Attack(agent.damage);
+                agent.player.Attack(agent.damage, agent.gameObject);
                 // se a distancia entre o jogador e o enemy for a que ele consegue ver entao segue o player 
                 if (Vector3.Distance(agent.transform.position, agent.playerTranform.position) > agent.agentStoppingDistance)
                     agent.stateMachine.ChangeState(AiStateId.ChasePlayer);

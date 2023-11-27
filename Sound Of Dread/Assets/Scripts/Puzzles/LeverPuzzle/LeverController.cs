@@ -12,11 +12,12 @@ public class LeverController : MonoBehaviour
     private Animator animator;
     public int lockStatus = 0; // 0: Can be used, 1: Can't be used
     public int leverState = 0; // 0: Deafult, 1: Closed, 2: Opened
-
+    private AudioSource audioSource;
 
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -68,5 +69,8 @@ public class LeverController : MonoBehaviour
 
     }
 
-    
+    public void PlayLeverAudio()
+    {
+        audioSource.Play();
+    }
 }

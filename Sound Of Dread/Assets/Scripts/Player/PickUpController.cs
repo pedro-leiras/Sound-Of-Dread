@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,7 +13,7 @@ public class PickUpController : MonoBehaviour
     public float pickUpRange;
     public float dropForwardForce, dropUpwardForce;
   
-    public bool equipped;
+    public bool equipped = false;
     public static bool slotFull;
 
     public WaveController waveController;
@@ -23,17 +24,16 @@ public class PickUpController : MonoBehaviour
     private bool isTriggered;
     private AudioSource audiosource;
 
-
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
         initialPosition = transform.position;
-        
         isThrown = false;
+
         if (!equipped)
         {
             rb.isKinematic = false;
-            coll.isTrigger = false;
+            //coll.isTrigger = false;
         }
         if (equipped)
         {
@@ -41,6 +41,7 @@ public class PickUpController : MonoBehaviour
             coll.isTrigger = true;
             slotFull = true;
         }
+        
     }
     private void Update()
     {
@@ -64,7 +65,7 @@ public class PickUpController : MonoBehaviour
 
         rb.isKinematic = true;
         coll.isTrigger = true;
-
+        rb.useGravity = true;
         isThrown = false;
 
 
@@ -105,7 +106,7 @@ public class PickUpController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collision.gameObject.CompareTag("Player") && rb.useGravity != false)
         {
             collisionPos = collision.contacts[0].point;
             waveController.SpawnWaveEffect(collisionPos);

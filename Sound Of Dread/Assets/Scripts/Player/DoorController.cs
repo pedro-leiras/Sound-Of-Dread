@@ -11,10 +11,15 @@ public class DoorController : MonoBehaviour
     public float pickUpRange;
     public Animator animator;
     public int lockStatus = 1; // 0: Unlocked, 1: Locked
+    public AudioClip openDoor;
+    public AudioClip closeDoor;
+    public AudioClip lockedDoor;
+    private AudioSource audioSource;
 
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -27,6 +32,8 @@ public class DoorController : MonoBehaviour
             else
             {
                 //audio locked door
+                audioSource.clip = lockedDoor;
+                audioSource.Play();
             }
             
         }
@@ -49,11 +56,13 @@ public class DoorController : MonoBehaviour
             {
                 animator.SetInteger("State", 2); // open door closed-> open
                 //play audio opening
+                
             }
             else if (stateValue == 2) 
             {
                 animator.SetInteger("State", 1); // close door
                 //play audio closing door
+                
             }
         }
     }
@@ -81,4 +90,15 @@ public class DoorController : MonoBehaviour
         lockStatus = 1;
     }
 
+    public void PlayOpenDoorAudio()
+    {
+        audioSource.clip = openDoor;
+        audioSource.Play();
+    }
+
+    public void PlayCloseDoorAudio()
+    {
+        audioSource.clip = closeDoor;
+        audioSource.Play();
+    }
 }

@@ -12,6 +12,8 @@ public class TimePuzzle : MonoBehaviour
     public WaveController waveController;
     private float elapsed = 0f;
     public AudioSource plateTicking;
+    public AudioClip plateSound;
+
     private void Update()
     {
         if (!Level2Finish)
@@ -42,6 +44,7 @@ public class TimePuzzle : MonoBehaviour
         if (plateID == 0)
         {
             firstPlateActivated = true;
+            plateTicking.clip = plateSound;
             plateTicking.Play();
         }
         else if (plateID == 1)
@@ -50,7 +53,7 @@ public class TimePuzzle : MonoBehaviour
             if (firstPlateActivated && secondPlateActivated)
             {
                 Debug.Log("You win");
-                plateTicking.Stop();
+                //plateTicking.Stop();
                 foreach (DoorController door in doors)
                 {
                     if(door.doorID == 5)

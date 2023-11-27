@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class MovementStateManager : MonoBehaviour
 {
@@ -32,8 +33,8 @@ public class MovementStateManager : MonoBehaviour
     private int regenAmount = 1;   // Health regeneration per second
     private float lastDamageTime;
 
-    private AudioSource AudioSource;
-    public AudioClip hurtClip;
+    public AudioSource FSAudioSource;
+    public AudioSource DamageAudioSource;
 
     enum FSMaterial
     {
@@ -50,8 +51,6 @@ public class MovementStateManager : MonoBehaviour
     public LeverPuzzle leverPuzzle;
     public CheckpointManager checkpointManager;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +58,6 @@ public class MovementStateManager : MonoBehaviour
         controller = GetComponent<CharacterController>();
         SwitchState(Idle);
         currentHealth = 100;
-        AudioSource = GetComponent<AudioSource>();
         isDead = false;
         _deathHash = Animator.StringToHash("Death");
 
@@ -118,15 +116,18 @@ public class MovementStateManager : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    public void Attack(int damage)
+    public void Attack(int damage, GameObject Sender)
     {
         if (currentHealth > 0)
         {
-            AudioSource.clip = hurtClip;
-            AudioSource.volume = 0.7f;
-            AudioSource.pitch = 1;
-            AudioSource.Play();
+            DamageAudioSource.Play();
             currentHealth -= damage;
+
+            //damage vfx
+            bl_DamageInfo info = new bl_DamageInfo(damage);
+            info.Sender = Sender;
+            bl_DamageDelegate.OnDamageEvent(info);
+
             currentHealth = Mathf.Max(currentHealth, 0);
             lastDamageTime = Time.time;
         }
@@ -215,11 +216,11 @@ public class MovementStateManager : MonoBehaviour
 
         if (surface != FSMaterial.Empty)
         {
-            AudioSource.clip = clip;
+            FSAudioSource.clip = clip;
 
-            AudioSource.volume = UnityEngine.Random.Range(0.5f, 0.8f);
-            AudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
-            AudioSource.Play();
+            FSAudioSource.volume = UnityEngine.Random.Range(0.5f, 0.8f);
+            FSAudioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+            FSAudioSource.Play();
         }
     }
     private IEnumerator RespawnAfterDelay(float delay, string levelName)

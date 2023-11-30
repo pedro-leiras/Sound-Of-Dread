@@ -21,7 +21,7 @@ public class PickUpController : MonoBehaviour
     public bool isThrown;
     private Vector3 initialPosition;
     public DoorTrigger doorTrigger;
-    private bool isTriggered;
+    private bool canDoEffects = false; //evita reproduzir a onda e som ao começar a scene
     private AudioSource audiosource;
 
     private void Start()
@@ -65,9 +65,8 @@ public class PickUpController : MonoBehaviour
 
         rb.isKinematic = true;
         coll.isTrigger = true;
-        rb.useGravity = true;
         isThrown = false;
-
+        canDoEffects = true;
 
     }
 
@@ -106,7 +105,7 @@ public class PickUpController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.gameObject.CompareTag("Player") && rb.useGravity != false)
+        if (!collision.gameObject.CompareTag("Player") && canDoEffects != false)
         {
             collisionPos = collision.contacts[0].point;
             waveController.SpawnWaveEffect(collisionPos);

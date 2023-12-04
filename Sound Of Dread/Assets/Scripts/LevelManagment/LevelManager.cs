@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,11 +22,13 @@ public class LevelManager : MonoBehaviour{
     public void FadeToLevel(int levelIndex){
         animator.SetTrigger("FadeOut");
         levelToLoad = levelIndex;
-        Debug.Log(levelToLoad);
     }
 
     public void OnFadeComplete(){
-        Debug.Log(levelToLoad);
-        SceneManager.LoadScene(levelToLoad, LoadSceneMode.Single);
+        SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void OnEnter(){
+        FadeToLevel(0);
     }
 }

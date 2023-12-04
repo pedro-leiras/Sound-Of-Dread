@@ -37,6 +37,8 @@ public class AiStatePatrol : AiState{
 
         agent.animator.SetFloat(agent.transitionAnimation, newValue);
 
+        agent.PlaySteps();
+
         // assim que chega ao ponto move-se se nao muda a posicao onde
         // teria que estar e move-se para a proxima posicao
         if (Vector3.Distance(agent.transform.position, agent.points[current].position) > distanceThreshold)

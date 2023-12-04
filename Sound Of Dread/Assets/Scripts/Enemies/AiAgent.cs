@@ -12,6 +12,7 @@ public class AiAgent : MonoBehaviour{
     public Transform[] points;
     public CapsuleCollider agentCollider;
     public AudioSource source;
+    public AudioSource sourceSteps;
     public AudioClip patrolClip;
     public float delayInSecondsPatrol = 1f;
     public AudioClip chaseClip;
@@ -24,6 +25,7 @@ public class AiAgent : MonoBehaviour{
     public float delayInSecondsDeath = 1f;
     public AudioClip pointingClip;
     public float delayInSecondsPointing = 1f;
+    public AudioClip stepsClip;
 
     //onde vai começar a patrolhar
     [HideInInspector]
@@ -63,11 +65,20 @@ public class AiAgent : MonoBehaviour{
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementStateManager>();
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
         source = gameObject.AddComponent<AudioSource>();
-        source.volume = 0.13f;
+        source.volume = 1f;
         source.spatialBlend = 1.0f;
         source.rolloffMode = AudioRolloffMode.Linear;
         source.maxDistance = 10.0f;
         source.playOnAwake = false;
+        
+        sourceSteps = gameObject.AddComponent<AudioSource>();
+        sourceSteps.volume = 1f;
+        sourceSteps.spatialBlend = 1.0f;
+        sourceSteps.rolloffMode = AudioRolloffMode.Linear;
+        sourceSteps.maxDistance = 13.0f;
+        sourceSteps.playOnAwake = false;
+        sourceSteps.loop = true;
+        sourceSteps.clip = stepsClip;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());
         stateMachine.RegisterState(new AiStatePatrol());
@@ -104,5 +115,10 @@ public class AiAgent : MonoBehaviour{
                 isDead = true;
             }
         }
+    }
+
+    public void PlaySteps(){
+        if (sourceSteps.isPlaying) sourceSteps.Play();
+        Debug.Log("Step");
     }
 }

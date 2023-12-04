@@ -30,6 +30,8 @@ public class AiStateChaseSound : AiState{
 
         agent.animator.SetFloat(agent.transitionAnimation, newValue);
 
+        agent.PlaySteps();
+
         // assim que chega ao ponto para e procura se tem alguem, se nao tiver vai patrolhar logo asseguir onde parou
         if (agent.puc != null && agent.puc.collisionPos != Vector3.zero && Vector3.Distance(agent.transform.position, agent.puc.collisionPos) < agent.listeningArea && agent.puc.isThrown){
             agent.navMeshAgent.destination = agent.puc.collisionPos;

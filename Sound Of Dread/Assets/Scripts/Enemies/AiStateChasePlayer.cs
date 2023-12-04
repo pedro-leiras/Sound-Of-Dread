@@ -39,6 +39,8 @@ public class AiStateChasePlayer : AiState{
 
         if (!agent.navMeshAgent.enabled) return;
 
+        agent.PlaySteps();
+
         bool canSeePlayer = CanSeePlayer(agent);
         if (canSeePlayer) timer = agent.timeForMonsterToStopLooking; // tempo que o inimigo segue desde o momento que nao consegue ver o player
         else timer -= Time.deltaTime;

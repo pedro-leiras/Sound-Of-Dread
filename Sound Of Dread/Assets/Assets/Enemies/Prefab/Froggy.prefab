@@ -644,9 +644,11 @@ MonoBehaviour:
   animator: {fileID: 0}
   playerTranform: {fileID: 0}
   player: {fileID: 0}
+  container: {fileID: 0}
   points: []
   agentCollider: {fileID: 0}
   source: {fileID: 0}
+  sourceSteps: {fileID: 0}
   patrolClip: {fileID: 0}
   delayInSecondsPatrol: 1
   chaseClip: {fileID: 8300000, guid: 9009a5023d6ddf6409cf510ce38c63c5, type: 3}
@@ -659,6 +661,7 @@ MonoBehaviour:
   delayInSecondsDeath: 1
   pointingClip: {fileID: 0}
   delayInSecondsPointing: 1
+  stepsClip: {fileID: 8300000, guid: 3e2cb2f389d366744bee1a79dfaf73f8, type: 3}
   startingPoint: 0
   transitionAnimation: -1203198838
   puc: {fileID: 0}

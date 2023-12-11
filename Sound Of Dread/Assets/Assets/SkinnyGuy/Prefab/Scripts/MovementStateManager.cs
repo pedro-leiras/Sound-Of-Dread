@@ -49,6 +49,7 @@ public class MovementStateManager : MonoBehaviour
     private int _deathHash;
     public TimePuzzle timePuzzle;
     public LeverPuzzle leverPuzzle;
+    public LPuzzle lPuzzle;
     public CheckpointManager checkpointManager;
 
     // Start is called before the first frame update
@@ -260,6 +261,10 @@ public class MovementStateManager : MonoBehaviour
         else if (leverPuzzle.Level1Finish)
         {
             return "Level1";
+        }
+        else if (lPuzzle.Level3Finish)
+        {
+            return "Level3";
         }
 
         return "Checkpoint1";

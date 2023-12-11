@@ -3757,6 +3757,7 @@ MonoBehaviour:
   cubeId: 3
   notePrefix: letterDisplay
   doors: []
+  lPuzzle: {fileID: 0}
 --- !u!1 &223950719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +4674,7 @@ MonoBehaviour:
   cubeId: 0
   notePrefix: letterDisplay
   doors: []
+  lPuzzle: {fileID: 0}
 --- !u!43 &333994967
 Mesh:
   m_ObjectHideFlags: 0
@@ -20099,6 +20101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plateID: 2
   timePuzzle: {fileID: 798515525}
+  audioClip: {fileID: 0}
 --- !u!65 &844380037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20183,7 +20186,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh51344
+  m_Name: pb_Mesh92048
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20400,6 +20403,7 @@ MonoBehaviour:
   waveController: {fileID: 0}
   collisionPos: {x: 0, y: 0, z: 0}
   isThrown: 0
+  doorTrigger: {fileID: 0}
 --- !u!1 &939929086
 GameObject:
   m_ObjectHideFlags: 0
@@ -27197,6 +27201,7 @@ MonoBehaviour:
   waveController: {fileID: 0}
   collisionPos: {x: 0, y: 0, z: 0}
   isThrown: 0
+  doorTrigger: {fileID: 0}
 --- !u!1 &1091369378
 GameObject:
   m_ObjectHideFlags: 0
@@ -34196,8 +34201,11 @@ MonoBehaviour:
   coll: {fileID: 1483641751}
   player: {fileID: 173645079}
   fpsCam: {fileID: 0}
-  pickUpRange: 3
+  interactionDistance: 3
   lockStatus: 1
+  openDoor: {fileID: 0}
+  closeDoor: {fileID: 0}
+  lockedDoor: {fileID: 0}
 --- !u!1001 &1494837561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36945,6 +36953,7 @@ MonoBehaviour:
   cubeId: 4
   notePrefix: letterDisplay
   doors: []
+  lPuzzle: {fileID: 0}
 --- !u!1 &1654475405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6505494680676671688, guid: 87044e9a5a69fbe4a8d7adc4fb726e7c,
@@ -42535,6 +42544,7 @@ MonoBehaviour:
   cubeId: 1
   notePrefix: letterDisplay
   doors: []
+  lPuzzle: {fileID: 0}
 --- !u!4 &2023683469 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4992866769980251977, guid: 6f0b32647bc0e744396fc5d4f834b02c,
@@ -42655,6 +42665,7 @@ MonoBehaviour:
   cubeId: 2
   notePrefix: letterDisplay
   doors: []
+  lPuzzle: {fileID: 0}
 --- !u!43 &2098147182
 Mesh:
   m_ObjectHideFlags: 0

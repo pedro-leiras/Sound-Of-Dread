@@ -119,6 +119,6 @@ public class AiAgent : MonoBehaviour{
 
     public void PlaySteps(){
         if (sourceSteps.isPlaying) sourceSteps.Play();
-        Debug.Log("Step");
+       // Debug.Log("Step");
     }
 }

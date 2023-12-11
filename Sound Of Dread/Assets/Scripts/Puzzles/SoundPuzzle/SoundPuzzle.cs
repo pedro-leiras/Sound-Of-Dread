@@ -13,7 +13,7 @@ public class SoundPuzzle : MonoBehaviour
     private bool isPlaying = false;
     public int[] correctSequence = { 1,1,3,3,2,4,2,1,1,1,3,3,3,1};
     private List<int> playerInputSequence = new List<int>();
-    public bool Level3Finish = false;
+    public bool Level4Finish = false;
 
     private void Update()
     {
@@ -21,7 +21,7 @@ public class SoundPuzzle : MonoBehaviour
         {
             if (lockStatus == 0)
             {
-                if(Level3Finish == false)
+                if(Level4Finish == false)
                 {
                     TryInteractWithButton();
                 }
@@ -64,7 +64,7 @@ public class SoundPuzzle : MonoBehaviour
                         if (playerInputSequence.Count == correctSequence.Length)
                         {
                             Debug.Log("You win!");
-                            Level3Finish = true;
+                            Level4Finish = true;
                             playerInputSequence.Clear();
                         }
                     }

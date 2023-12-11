@@ -6,6 +6,7 @@ public class LPuzzle : MonoBehaviour
 {
     public int letters;
     public DoorController[] doors;
+    public bool Level3Finish = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,16 +16,21 @@ public class LPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (letters == 5)
+        if (Level3Finish == false)
         {
-            foreach (DoorController door in doors)
+            if (letters == 5)
             {
-                if (door.doorID == 20)
+                Level3Finish = true;
+                foreach (DoorController door in doors)
                 {
-                    door.lockStatus = 0;
-                    door.OpenChurchDoor();
+                    if (door.doorID == 20)
+                    {
+                        door.lockStatus = 0;
+                        door.OpenChurchDoor();
+                    }
                 }
             }
         }
+        
     }
 }

@@ -68,7 +68,7 @@ public class MovementStateManager_Multiplayer : NetworkBehaviour
         if (IsOwner)
         {
             Camera.SetActive(true);
-            RespawnServerRpc();
+            RespawnServerRpc(new Vector3(0f, 1f, 0f));
         }
         base.OnNetworkSpawn();
     }
@@ -183,7 +183,7 @@ public class MovementStateManager_Multiplayer : NetworkBehaviour
         // Reset player's health and position
         currentHealth = maxHealth;
         //transform.position = respawnPoint.position;
-
+        RespawnServerRpc(respawnPoint.position);
         isDead = false;
         anim.SetBool(_deathHash, false);
 

@@ -70,15 +70,6 @@ public class AiAgent : MonoBehaviour{
         source.rolloffMode = AudioRolloffMode.Linear;
         source.maxDistance = 10.0f;
         source.playOnAwake = false;
-        
-        sourceSteps = gameObject.AddComponent<AudioSource>();
-        sourceSteps.volume = 1f;
-        sourceSteps.spatialBlend = 1.0f;
-        sourceSteps.rolloffMode = AudioRolloffMode.Linear;
-        sourceSteps.maxDistance = 13.0f;
-        sourceSteps.playOnAwake = false;
-        sourceSteps.loop = true;
-        sourceSteps.clip = stepsClip;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());
         stateMachine.RegisterState(new AiStatePatrol());

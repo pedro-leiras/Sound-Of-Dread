@@ -9,12 +9,18 @@ public class TerrainGrid : MonoBehaviour{
 
     [SerializeField] Terrain terrain;
     [SerializeField] VegetationGenerator vegetationGenerator;
+    public bool ifIsDoneVegetation = false;
+    public Vector3[,] gridPositions;
 
     public Node[,] grid;
 
     void Start(){
         CreateGrid();
         SpawnVegetation();
+    }
+
+    public void Update(){
+        if (vegetationGenerator != null) vegetationGenerator.GenerateVegetation();
     }
 
     private void CreateGrid(){
@@ -38,7 +44,7 @@ public class TerrainGrid : MonoBehaviour{
 
                 worldPoint.y = elevation;
 
-                bool walkable = true;
+                bool walkable = IsPositionWalkable(worldPoint); 
 
                 grid[x, z] = new Node(walkable, worldPoint, x, z);
             }
@@ -56,16 +62,29 @@ public class TerrainGrid : MonoBehaviour{
 
     private void SpawnVegetation(){
         if (vegetationGenerator != null){
-            Vector3[,] gridPositions = new Vector3[grid.GetLength(0), grid.GetLength(1)];
+            gridPositions = new Vector3[grid.GetLength(0), grid.GetLength(1)];
 
             for (int x = 0; x < grid.GetLength(0); x++){
                 for (int z = 0; z < grid.GetLength(1); z++){
-                    gridPositions[x, z] = grid[x, z].worldPosition;
+                    if(grid[x, z].walkable)
+                        gridPositions[x, z] = grid[x, z].worldPosition;
                 }
             }
-
-            vegetationGenerator.GenerateVegetation(gridPositions);
+            
+            vegetationGenerator.GeneratePosition(gridPositions);
         }            
+    }
+
+    private bool IsPositionWalkable(Vector3 position){
+        Collider[] colliders = Physics.OverlapSphere(position, nodeRadius);
+        
+        foreach (var collider in colliders){
+            if (collider.CompareTag("Obstacle")){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public class Node{

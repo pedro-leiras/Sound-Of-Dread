@@ -34,7 +34,7 @@ public class VegetationGenerator : MonoBehaviour
 
         foreach (Vector3 position in gridPositions){
             for(int i = 0; i < numberOfGrassInstances; i++){
-                Vector3 randomOffset = new Vector3(Random.Range(-3f, 3f), 0f, Random.Range(-3f, 3f));
+                Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f));
                 spawnPosition = position + randomOffset;
 
                 AddObj(matrices, spawnPosition, i);

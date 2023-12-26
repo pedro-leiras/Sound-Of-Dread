@@ -14,9 +14,9 @@ public class LevelManager : MonoBehaviour{
     
     private void OnTriggerEnter(Collider collision){
         if(levelToChange == Level.ForestScene)
-            FadeToLevel(0);
+            FadeToLevel(2);
         else if(levelToChange == Level.Map)
-            FadeToLevel(1);
+            FadeToLevel(3);
     }   
 
     public void FadeToLevel(int levelIndex){

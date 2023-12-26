@@ -170,6 +170,7 @@ public class MovementStateManager : MonoBehaviour
             currentHealth = Mathf.Min(currentHealth, maxHealth);
         }
     }
+    
     private FSMaterial SurfaceSelect()
     {
         RaycastHit hit;
@@ -193,6 +194,7 @@ public class MovementStateManager : MonoBehaviour
 
         return FSMaterial.Empty;
     }
+
     private void PlayFootstep()
     {
         AudioClip clip = null;
@@ -224,6 +226,7 @@ public class MovementStateManager : MonoBehaviour
             FSAudioSource.Play();
         }
     }
+
     private IEnumerator RespawnAfterDelay(float delay, string levelName)
     {
         yield return new WaitForSeconds(delay);
@@ -238,6 +241,7 @@ public class MovementStateManager : MonoBehaviour
         anim.SetBool(_deathHash, false);
 
     }
+   
     private Transform GetRespawnPointForLevel(string levelName)
     {
         foreach (var checkpoint in CheckpointManager.instance.checkpoints)
@@ -251,6 +255,7 @@ public class MovementStateManager : MonoBehaviour
 
         return transform;
     }
+    
     private string GetCurrentLevelName()
     {
         // Determine the current level

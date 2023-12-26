@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 103064, guid: 8706977dc4c201848bf0693e326e4f0f, type: 3}
       propertyPath: m_Name
-      value: TestPrefab 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 103064, guid: 8706977dc4c201848bf0693e326e4f0f, type: 3}
       propertyPath: m_Layer
@@ -742,61 +742,7 @@ MonoBehaviour:
   UpperLimit: -40
   BottomLimit: 50
   MouseSensitivity: 21.9
-  movement: {fileID: 1829427755}
---- !u!114 &1829427755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7144852281153426944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885270a68d9d72940b414d29699b4544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  currentMoveSpeed: 3
-  walkSpeed: 3
-  walkBackSpeed: 2
-  runSpeed: 7
-  runBackSpeed: 6
-  crouchSpeed: 1.5
-  crouchBackSpeed: 1
-  dir: {x: 0, y: 0, z: 0}
-  hzInput: 0
-  vInput: 0
-  groundYOffset: 0.6
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
-  gravity: -9.81
-  isDead: 0
-  currentHealth: 0
-  maxHealth: 100
-  hurtClip: {fileID: 8300000, guid: 5b51f47a310b359499d396991b5c1e0d, type: 3}
-  woodFS:
-  - {fileID: 8300000, guid: 3e2cb2f389d366744bee1a79dfaf73f8, type: 3}
-  - {fileID: 8300000, guid: 61cd6008237147e43ad508ab4a9d00b2, type: 3}
-  - {fileID: 8300000, guid: a2c0047bc72732d48b570ad97a1262a2, type: 3}
-  - {fileID: 8300000, guid: 577f06a82567a1846b2f86d518af027b, type: 3}
-  - {fileID: 8300000, guid: 69b2f56f9b24c3a4facfa6581fde9551, type: 3}
-  - {fileID: 8300000, guid: 8dbcc494d88c9894a8adc8e62c617aa9, type: 3}
-  - {fileID: 8300000, guid: 284467afdb8de644d848cc12c03ae849, type: 3}
-  - {fileID: 8300000, guid: f690621e085571d4f8c0378dff3f4f0f, type: 3}
-  gravelFS: []
-  stoneFS:
-  - {fileID: 8300000, guid: d88cbad2d217cd74ba1eb0899d6c55ad, type: 3}
-  - {fileID: 8300000, guid: ada024810fd950d408257d2b4903e899, type: 3}
-  - {fileID: 8300000, guid: 74fb0bf68831ec14e8bbc1d6ab1dfba5, type: 3}
-  - {fileID: 8300000, guid: 72fa4eaddcee6834c9fdd330daf0ea25, type: 3}
-  - {fileID: 8300000, guid: 4f4662159c986a84d837e300ab18b254, type: 3}
-  - {fileID: 8300000, guid: eaf994496ccc5594e8080f3b417dc6e4, type: 3}
-  - {fileID: 8300000, guid: dadaa610dcc8540478eb22b5eb22600d, type: 3}
-  - {fileID: 8300000, guid: b64b558762ca20345b14655cd876ec61, type: 3}
-  timePuzzle: {fileID: 0}
-  leverPuzzle: {fileID: 0}
-  checkpointManager: {fileID: 0}
+  movement: {fileID: 8119927206894891846}
 --- !u!114 &1829427756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,6 +824,61 @@ MonoBehaviour:
   durationFS: 1
   sizeFS: 10
   sobelController: {fileID: 3843805728757717577}
+--- !u!114 &8119927206894891846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144852281153426944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e65796522159df4fa2c1b8916d8495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  currentMoveSpeed: 3
+  walkSpeed: 3
+  walkBackSpeed: 2
+  runSpeed: 7
+  runBackSpeed: 6
+  crouchSpeed: 1.5
+  crouchBackSpeed: 1
+  dir: {x: 0, y: 0, z: 0}
+  hzInput: 0
+  vInput: 0
+  groundYOffset: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 256
+  gravity: -9.81
+  isDead: 0
+  currentHealth: 0
+  maxHealth: 100
+  FSAudioSource: {fileID: 4317138787045473078}
+  DamageAudioSource: {fileID: 4317138787045473078}
+  woodFS:
+  - {fileID: 8300000, guid: 3e2cb2f389d366744bee1a79dfaf73f8, type: 3}
+  - {fileID: 8300000, guid: 61cd6008237147e43ad508ab4a9d00b2, type: 3}
+  - {fileID: 8300000, guid: a2c0047bc72732d48b570ad97a1262a2, type: 3}
+  - {fileID: 8300000, guid: 577f06a82567a1846b2f86d518af027b, type: 3}
+  - {fileID: 8300000, guid: 69b2f56f9b24c3a4facfa6581fde9551, type: 3}
+  - {fileID: 8300000, guid: 8dbcc494d88c9894a8adc8e62c617aa9, type: 3}
+  - {fileID: 8300000, guid: 284467afdb8de644d848cc12c03ae849, type: 3}
+  - {fileID: 8300000, guid: f690621e085571d4f8c0378dff3f4f0f, type: 3}
+  gravelFS: []
+  stoneFS:
+  - {fileID: 8300000, guid: d88cbad2d217cd74ba1eb0899d6c55ad, type: 3}
+  - {fileID: 8300000, guid: ada024810fd950d408257d2b4903e899, type: 3}
+  - {fileID: 8300000, guid: 74fb0bf68831ec14e8bbc1d6ab1dfba5, type: 3}
+  - {fileID: 8300000, guid: 72fa4eaddcee6834c9fdd330daf0ea25, type: 3}
+  - {fileID: 8300000, guid: 4f4662159c986a84d837e300ab18b254, type: 3}
+  - {fileID: 8300000, guid: eaf994496ccc5594e8080f3b417dc6e4, type: 3}
+  - {fileID: 8300000, guid: dadaa610dcc8540478eb22b5eb22600d, type: 3}
+  - {fileID: 8300000, guid: b64b558762ca20345b14655cd876ec61, type: 3}
+  timePuzzle: {fileID: 0}
+  leverPuzzle: {fileID: 0}
+  checkpointManager: {fileID: 0}
 --- !u!4 &7144852281153614816 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 489336, guid: 8706977dc4c201848bf0693e326e4f0f,

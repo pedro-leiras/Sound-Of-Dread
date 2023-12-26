@@ -5,12 +5,14 @@ public class JumpScare : MonoBehaviour{
     public Transform spawnPoint;
     public GameObject prefab;
     public AudioSource audioSource;
+    public AudioClip[] audioClips;
     public bool isPlayed;
     public float gravity;
     private bool isTriggered = false;
 
     public void OnTriggerEnter(Collider other){
         if(other.tag == "Player" && !isPlayed && !isTriggered){
+            audioSource.clip = audioClips[Random.Range(0, audioClips.Length)];
             audioSource.PlayOneShot(audioSource.clip);
             
             Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);

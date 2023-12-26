@@ -60,7 +60,7 @@ public class AiAgent : MonoBehaviour{
         //nossa state machina que vai gerir os estados
         stateMachine = new AiStateMachine(this);
         if (container == null) container = GameObject.FindGameObjectWithTag("Container");
-        if (puc == null) puc = container.GetComponentInChildren<PickUpController>();
+        // if (puc == null) puc = container.GetComponentInChildren<PickUpController>();
         if (agentCollider == null) agentCollider = GameObject.FindGameObjectWithTag("Enemy").GetComponent<CapsuleCollider>();
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementStateManager>();
         if (playerTranform == null) playerTranform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -70,14 +70,13 @@ public class AiAgent : MonoBehaviour{
         source.rolloffMode = AudioRolloffMode.Linear;
         source.maxDistance = 10.0f;
         source.playOnAwake = false;
-        
+
         sourceSteps = gameObject.AddComponent<AudioSource>();
         sourceSteps.volume = 1f;
         sourceSteps.spatialBlend = 1.0f;
         sourceSteps.rolloffMode = AudioRolloffMode.Linear;
-        sourceSteps.maxDistance = 13.0f;
+        sourceSteps.maxDistance = 10.0f;
         sourceSteps.playOnAwake = false;
-        sourceSteps.loop = true;
         sourceSteps.clip = stepsClip;
         //todos os estados sao registados aqui
         stateMachine.RegisterState(new AiStateChasePlayer());

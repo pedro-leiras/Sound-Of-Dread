@@ -15,6 +15,7 @@ TagManager:
   - Stone Floor
   - ObjectInfinite
   - Container
+  - Obstacle
   layers:
   - Default
   - TransparentFX

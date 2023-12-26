@@ -146,6 +146,9 @@ MonoBehaviour:
   spawnPoint: {fileID: 3545055901312698201}
   prefab: {fileID: 0}
   audioSource: {fileID: 3545055901848531388}
+  audioClips:
+  - {fileID: 8300000, guid: 8029ae0c108df2f44810d3feaa4759bc, type: 3}
+  - {fileID: 8300000, guid: 0b265d2da5a39bd0d862ea3f06cc07b6, type: 3}
   isPlayed: 0
   gravity: 5
 --- !u!82 &3545055901848531388
@@ -158,7 +161,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0b265d2da5a39bd0d862ea3f06cc07b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8029ae0c108df2f44810d3feaa4759bc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

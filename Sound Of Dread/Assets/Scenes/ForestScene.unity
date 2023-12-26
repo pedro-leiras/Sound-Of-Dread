@@ -8492,8 +8492,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 768143986, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143986, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
       propertyPath: m_RendererIndex
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1829427755, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
       propertyPath: gravelFS.Array.size
@@ -16578,9 +16582,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf302480554fc724fae6546171a87b4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassPrefab: {fileID: 100892, guid: 572290dd002dd544ea25acca13fd38c1, type: 3}
-  numberOfGrassInstances: 5
+  grassPrefab: {fileID: 1486135145144310, guid: 15d2be2fb5b8c7148af4d8c5f0f65d14,
+    type: 3}
+  numberOfGrassInstances: 1
   spawnPosition: {x: 0, y: 0, z: 0}
+  cullDistance: 50
 --- !u!1001 &1821801630
 PrefabInstance:
   m_ObjectHideFlags: 0

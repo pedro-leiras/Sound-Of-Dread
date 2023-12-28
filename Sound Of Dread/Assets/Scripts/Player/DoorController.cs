@@ -14,6 +14,7 @@ public class DoorController : MonoBehaviour
     public AudioClip openDoor;
     public AudioClip closeDoor;
     public AudioClip lockedDoor;
+    public AudioClip playerThoughts;
     private AudioSource audioSource;
 
     private void Start()
@@ -37,11 +38,12 @@ public class DoorController : MonoBehaviour
                     {
                         CheckDoor(doorController);
                     }
-                    else
+                    else /*if (gameObject.CompareTag("Player"))*/
                     {
                         //audio locked door
-                        audioSource.clip = lockedDoor;
-                        audioSource.Play();
+                        //audioSource.clip = lockedDoor;
+                        //audioSource.Play();
+                        StartCoroutine(PlayLockedDoorAudioSequence());
                     }
                 }
             }
@@ -66,8 +68,23 @@ public class DoorController : MonoBehaviour
             {
                 animator.SetInteger("State", 1); // close door
             }
+            else if (lockStatus == 1)  
+            {
+                StartCoroutine(PlayLockedDoorAudioSequence());
+            }
         }
 
+    }
+    
+    private IEnumerator PlayLockedDoorAudioSequence()
+    {
+        audioSource.clip = lockedDoor;
+        audioSource.Play();
+
+        yield return new WaitForSeconds(audioSource.clip.length);
+
+        audioSource.clip = playerThoughts;
+        audioSource.Play();
     }
 
     public void OpenDoor()

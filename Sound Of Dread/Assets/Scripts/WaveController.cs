@@ -40,6 +40,23 @@ public class WaveController : MonoBehaviour
         Invoke("disableSobel", durationObject + 0.5f);
     }
 
+    public void SpawnWaveEffectNoSobel(Vector3 spawnPos)
+    {
+        GameObject waveEffect = Instantiate(WaveEffectPrefab, spawnPos, Quaternion.identity) as GameObject;
+        ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
+        if (waveEffectPS != null)
+        {
+            var main = waveEffectPS.main;
+            main.startLifetime = durationFS;
+            main.startSize = sizeFS;
+        }
+        else
+        {
+            Debug.Log("WAVE EFFECT: The first child doesn't have particle system!");
+        }
+        Destroy(waveEffect, durationFS + 1);
+    }
+
     public void SpawnFootSteepsWaveEffect()
     {
         GameObject waveEffect = Instantiate(WaveEffectPrefab, transform.position, Quaternion.identity) as GameObject;

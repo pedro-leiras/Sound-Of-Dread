@@ -106,10 +106,6 @@ public class AiAgent : MonoBehaviour{
                     {
                         door.lockStatus = 0;
                     }
-                    if (door.doorID == 22)
-                    {
-                        door.lockStatus = 0;
-                    }
                 }
                 isDead = true;
             }

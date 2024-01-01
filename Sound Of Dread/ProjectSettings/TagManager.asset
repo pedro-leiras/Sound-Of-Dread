@@ -16,6 +16,7 @@ TagManager:
   - ObjectInfinite
   - Container
   - Obstacle
+  - MusicPuzzle
   layers:
   - Default
   - TransparentFX

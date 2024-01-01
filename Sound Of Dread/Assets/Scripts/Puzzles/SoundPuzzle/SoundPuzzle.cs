@@ -14,6 +14,7 @@ public class SoundPuzzle : MonoBehaviour
     public int[] correctSequence = { 1,1,3,3,2,4,2,1,1,1,3,3,3,1};
     private List<int> playerInputSequence = new List<int>();
     public bool Level4Finish = false;
+    public DoorController[] doors;
 
     private void Update()
     {
@@ -25,11 +26,15 @@ public class SoundPuzzle : MonoBehaviour
                 {
                     TryInteractWithButton();
                 }
+                else if(Level4Finish == true)
+                {
+                    UnlockDoor();
+                }
                 
             }
             else
             {
-                // Locked button logic here.
+                // Locked button logic here
             }
         }
     }
@@ -63,14 +68,15 @@ public class SoundPuzzle : MonoBehaviour
 
                         if (playerInputSequence.Count == correctSequence.Length)
                         {
-                            Debug.Log("You win!");
+                            //Debug.Log("You win!");
                             Level4Finish = true;
                             playerInputSequence.Clear();
+                            UnlockDoor();
                         }
                     }
                     else
                     {
-                        Debug.Log("You failed!");
+                        //Debug.Log("You failed!");
                         playerInputSequence.Clear();
                     }
                 }
@@ -78,7 +84,18 @@ public class SoundPuzzle : MonoBehaviour
             }
 
         }
-        Debug.Log("Player Input Sequence: " + string.Join(", ", playerInputSequence));
+        //Debug.Log("Player Input Sequence: " + string.Join(", ", playerInputSequence));
+    }
+
+    private void UnlockDoor()
+    {
+        foreach (DoorController door in doors)
+        {
+            if (door.doorID == 20)
+            {
+                door.lockStatus = 0;
+            }
+        }
     }
 }
 

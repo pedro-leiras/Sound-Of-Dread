@@ -4,39 +4,34 @@ using UnityEngine;
 
 public class ResetObjects : MonoBehaviour
 {
-    // Reference to the player and throwable objects
+
     public GameObject player;
     public GameObject[] throwableObjects;
+    public MovementStateManager movementStateManager;
 
-    // Arrays to store the initial positions and rotations of throwable objects
     private Vector3[] initialObjectPositions;
     private Quaternion[] initialObjectRotations;
     [SerializeField] public bool test = false;
 
-    // Called at the start of the game
     private void Start()
     {
-        // Store the initial positions and rotations of throwable objects
+
         StoreInitialObjectTransforms();
     }
     private void Update()
     {
-        if(test == true)
+
+        if(movementStateManager.currentHealth < 1)
         {
             OnPlayerDeath();
-            test = false;
         }
     }
 
     // Called when the player dies
     public void OnPlayerDeath()
     {
-        // Destroy all throwable objects
         DestroyThrowableObjects();
 
-        // Other logic for player respawn goes here
-
-        // Respawn throwable objects at their initial positions and rotations
         RespawnThrowableObjects();
     }
 
@@ -52,7 +47,7 @@ public class ResetObjects : MonoBehaviour
         }
     }
 
-    // Store the initial positions and rotations of throwable objects
+    // Store the initial positions and rotation
     private void StoreInitialObjectTransforms()
     {
         initialObjectPositions = new Vector3[throwableObjects.Length];
@@ -68,17 +63,16 @@ public class ResetObjects : MonoBehaviour
         }
     }
 
-    // Respawn throwable objects at their initial positions and rotations
+    // Respawn throwable objects at their initial positions
     private void RespawnThrowableObjects()
     {
         for (int i = 0; i < throwableObjects.Length; i++)
         {
             if (throwableObjects[i] != null)
             {
-                // Instantiate a new throwable object at its initial position and rotation
                 GameObject newThrowableObject = Instantiate(throwableObjects[i], initialObjectPositions[i], initialObjectRotations[i]);
 
-                // Enable the PickUp script and AudioSource if they are present
+                // Enable the PickUp script and AudioSource
                 PickUpController pickUpScript = newThrowableObject.GetComponent<PickUpController>();
                 if (pickUpScript != null)
                 {
@@ -91,7 +85,6 @@ public class ResetObjects : MonoBehaviour
                     audioSource.enabled = true;
                 }
 
-                // Assign the new throwable object to the array
                 throwableObjects[i] = newThrowableObject;
             }
         }

@@ -23,7 +23,7 @@ public class LPuzzle : MonoBehaviour
                 Level3Finish = true;
                 foreach (DoorController door in doors)
                 {
-                    if (door.doorID == 20)
+                    if (door.doorID == 420)
                     {
                         door.lockStatus = 0;
                         door.OpenChurchDoor();

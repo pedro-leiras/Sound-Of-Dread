@@ -153,7 +153,6 @@ public class MovementStateManager : MonoBehaviour
 
             isDead = true;
             anim.SetBool(_deathHash, true);
-
             //Gets what current leven we are on
             string currentLevel = GetCurrentLevelName();
 
@@ -256,7 +255,7 @@ public class MovementStateManager : MonoBehaviour
         return transform;
     }
     
-    private string GetCurrentLevelName()
+    public string GetCurrentLevelName()
     {
         // Determine the current level
         if (timePuzzle.Level2Finish)
@@ -271,7 +270,6 @@ public class MovementStateManager : MonoBehaviour
         {
             return "Level3";
         }
-
         return "Checkpoint1";
     }
 }

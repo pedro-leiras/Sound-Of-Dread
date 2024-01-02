@@ -86,6 +86,7 @@ public class AiStateChasePlayer : AiState{
             && Vector3.Distance(agent.transform.position, agent.playerTranform.position) >= agent.agentView)
             if (hit.collider.CompareTag("Player")) return true;
         return false;
+
     }
 
     private static bool IsBehindWall(AiAgent agent){

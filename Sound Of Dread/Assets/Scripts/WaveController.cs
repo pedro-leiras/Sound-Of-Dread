@@ -80,4 +80,16 @@ public class WaveController : MonoBehaviour
     {
         sobelController.DisableSobel();
     }
+
+    public bool GetPlayerCanSee(Transform other) {
+        Vector3 targetViewportPosition = Camera.main.WorldToViewportPoint(other.position);
+
+        if (targetViewportPosition.x > 0 && targetViewportPosition.x < 1 &&
+            targetViewportPosition.y > 0 && targetViewportPosition.y < 1 &&
+            targetViewportPosition.z > 0)
+        { 
+            return true;
+        }
+         return false;
+    }
 }

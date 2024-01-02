@@ -9,8 +9,20 @@ public class WaveControllerEnemies : MonoBehaviour
     public float durationFS = 10;
     public float sizeFS = 500;
 
+    [SerializeField] private WaveController player;
+    private AiAgent agent;
+
+    private void Start()
+    {
+        agent = GetComponent<AiAgent>();
+    }
+
     public void SpawnFootSteepsWaveEffect()
     {
+        bool playerCanSee = player.GetPlayerCanSee(transform);
+        bool behindWall = IsBehindWall();
+        if (!playerCanSee || behindWall) return;
+
         GameObject waveEffect = Instantiate(WaveEffectPrefab, transform.position, Quaternion.identity) as GameObject;
         ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
 
@@ -26,5 +38,18 @@ public class WaveControllerEnemies : MonoBehaviour
         }
 
         Destroy(waveEffect, durationFS + 1);
+    }
+
+    private bool IsBehindWall()
+    {
+        /*
+            implementa basicamente um raycast/linha de visao para ver se o inimigo consegue ver o jogador
+            retorna verdadeiro se o jogador estiver atras da parede ou falso se o contrario
+        */
+        RaycastHit hit;
+        if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit)
+            && Vector3.Distance(agent.transform.position, player.transform.position) >= agent.agentView)
+            if (hit.collider.CompareTag("Wall")) return true;
+        return false;
     }
 }

@@ -16,9 +16,6 @@ public class StaticSoundsManager : MonoBehaviour
 
     void SpawnWave()
     {
-        bool playerCanSee = _waveController.GetPlayerCanSee(transform);
-        Debug.Log(playerCanSee);
-        if (!playerCanSee) return;
         _waveController.SpawnWaveEffectNoSobel(transform.position);
     }
 }

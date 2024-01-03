@@ -70,19 +70,23 @@ public class MovementStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
-        {
-            GetDirectionAndMove();
-        }
-        Gravity();
+        
+            if (!isDead)
+            {
+                GetDirectionAndMove();
+            }
+            Gravity();
 
-        if (currentHealth != 100)
+            if (currentHealth != 100)
+            {
+                HandleHealth();
+            }
+        if (!PauseMenu.isPaused)
         {
-            HandleHealth();
+            anim.SetFloat("hzInput", hzInput);
+            anim.SetFloat("vInput", vInput);
+            currentState.UpdateState(this);
         }
-        anim.SetFloat("hzInput", hzInput);
-        anim.SetFloat("vInput", vInput);
-        currentState.UpdateState(this);
     }
 
     public void SwitchState(MovementBaseState state)
@@ -97,8 +101,8 @@ public class MovementStateManager : MonoBehaviour
         hzInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
 
-        dir = transform.forward * vInput + transform.right * hzInput;
 
+        dir = transform.forward * vInput + transform.right * hzInput;
         controller.Move(dir.normalized * currentMoveSpeed * Time.deltaTime);
     }
 
@@ -157,7 +161,7 @@ public class MovementStateManager : MonoBehaviour
             string currentLevel = GetCurrentLevelName();
 
             //Respawn
-            StartCoroutine(RespawnAfterDelay(10f, currentLevel));
+            StartCoroutine(RespawnAfterDelay(5f, currentLevel));
 
         }
     }

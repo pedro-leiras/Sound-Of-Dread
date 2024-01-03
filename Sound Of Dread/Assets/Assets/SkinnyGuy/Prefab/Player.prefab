@@ -54,12 +54,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372334343}
-  m_LocalRotation: {x: 0.3824527, y: -0.4452166, z: 0.5200679, w: 0.62051713}
-  m_LocalPosition: {x: 0.14400071, y: 0.1381549, z: -0.29870266}
-  m_LocalScale: {x: 0.17799008, y: 0.17799006, z: 0.17799005}
+  m_LocalRotation: {x: 0.41300154, y: -0.41703433, z: 0.5626775, w: 0.5821564}
+  m_LocalPosition: {x: -0.19057454, y: 0.1555165, z: -0.29870236}
+  m_LocalScale: {x: 0.1779901, y: 0.17799005, z: 0.17799002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7144852281153681804}
+  m_Father: {fileID: 7144852281153670574}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 74.806, y: -31.718, z: 57.363}
 --- !u!1 &768143998
@@ -574,7 +574,7 @@ PrefabInstance:
     - target: {fileID: 9521998, guid: 8706977dc4c201848bf0693e326e4f0f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 215250182f04a2941a43c235e564b04f, type: 2}
+      objectReference: {fileID: 9100000, guid: 86593c634ffdc2345b6373ee81d066f5, type: 2}
     - target: {fileID: 9521998, guid: 8706977dc4c201848bf0693e326e4f0f, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -878,6 +878,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b64b558762ca20345b14655cd876ec61, type: 3}
   timePuzzle: {fileID: 0}
   leverPuzzle: {fileID: 0}
+  lPuzzle: {fileID: 0}
   checkpointManager: {fileID: 0}
 --- !u!4 &7144852281153614816 stripped
 Transform:
@@ -891,9 +892,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7144852281153520792}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7144852281153681804 stripped
+--- !u!4 &7144852281153670574 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 425236, guid: 8706977dc4c201848bf0693e326e4f0f,
+  m_CorrespondingSourceObject: {fileID: 411958, guid: 8706977dc4c201848bf0693e326e4f0f,
     type: 3}
   m_PrefabInstance: {fileID: 7144852281153520792}
   m_PrefabAsset: {fileID: 0}

@@ -20,8 +20,11 @@ public class PlayerControlls : MonoBehaviour
     }
     private void HideCursor()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (!PauseMenu.isPaused)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
     private void onLook(InputAction.CallbackContext context)
     {

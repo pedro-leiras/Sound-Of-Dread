@@ -1020,7 +1020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1366e1026541e6d4d8ad98721ec4a3c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: ForestScene
+  firstLevel: Cutscene
   optionsScreen: {fileID: 1067810924}
 --- !u!1 &556212245
 GameObject:

@@ -38,7 +38,7 @@ public class DoorController : MonoBehaviour
                     {
                         CheckDoor(doorController);
                     }
-                    else /*if (gameObject.CompareTag("Player"))*/
+                    else /*if (gameObject.tag == "Player")*/
                     {
                         //audio locked door
                         //audioSource.clip = lockedDoor;

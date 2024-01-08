@@ -26,6 +26,7 @@ public class AiAgent : MonoBehaviour{
     public AudioClip pointingClip;
     public float delayInSecondsPointing = 1f;
     public AudioClip stepsClip;
+    public Material originalMaterial;
 
     //onde vai começar a patrolhar
     [HideInInspector]
@@ -50,7 +51,12 @@ public class AiAgent : MonoBehaviour{
     [SerializeField] public bool isAttackable = false;
     [SerializeField] public int agentHP = 100;
 
+    //Variáveis para tratar com o final do jogo
     public DoorController[] doors;
+    public GameObject letterE; 
+    public GameObject letterX; 
+    public GameObject letterI; 
+    public GameObject letterT;
 
     void Start(){
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -96,6 +102,7 @@ public class AiAgent : MonoBehaviour{
     }
 
     private void OnCollisionEnter(Collision collision){
+
         if (collision.gameObject.CompareTag("Object") && isAttackable){
             agentHP -= 10;
             if (agentHP < 1)
@@ -107,10 +114,21 @@ public class AiAgent : MonoBehaviour{
                         door.lockStatus = 0;
                     }
                 }
+                Renderer rendererE = letterE.GetComponent<Renderer>();
+                rendererE.material = originalMaterial;
+                Renderer rendererX = letterX.GetComponent<Renderer>();
+                rendererX.material = originalMaterial;
+                Renderer rendererI = letterI.GetComponent<Renderer>();
+                rendererI.material = originalMaterial;
+                Renderer rendererT = letterT.GetComponent<Renderer>();
+                rendererT.material = originalMaterial;
+
                 isDead = true;
             }
         }
     }
+
+    
 
     public void PlaySteps(){
         if (sourceSteps.isPlaying) sourceSteps.Play();

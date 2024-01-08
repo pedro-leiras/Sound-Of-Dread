@@ -649,7 +649,7 @@ MonoBehaviour:
   points: []
   agentCollider: {fileID: 0}
   source: {fileID: 0}
-  sourceSteps: {fileID: 0}
+  sourceSteps: {fileID: 5514581371504542962}
   patrolClip: {fileID: 0}
   delayInSecondsPatrol: 1
   chaseClip: {fileID: 8300000, guid: 9009a5023d6ddf6409cf510ce38c63c5, type: 3}
@@ -663,6 +663,7 @@ MonoBehaviour:
   pointingClip: {fileID: 0}
   delayInSecondsPointing: 1
   stepsClip: {fileID: 8300000, guid: 3e2cb2f389d366744bee1a79dfaf73f8, type: 3}
+  blackMaterial: {fileID: 0}
   startingPoint: 0
   transitionAnimation: -1203198838
   puc: {fileID: 0}
@@ -678,7 +679,9 @@ MonoBehaviour:
   listeningArea: 100
   isAttackable: 1
   agentHP: 100
-  doors: []
+  doors:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!195 &228924959803282050
 NavMeshAgent:
   m_ObjectHideFlags: 0

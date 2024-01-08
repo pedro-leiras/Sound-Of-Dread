@@ -8,6 +8,7 @@ public class LeverPuzzle : MonoBehaviour
     public DoorController[] doors;
     public LeverController[] levers;
     public bool Level1Finish = false;
+
     //Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class LeverPuzzle : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+
         if (!Level1Finish)
         {
             bool allLeversInState2 = true;

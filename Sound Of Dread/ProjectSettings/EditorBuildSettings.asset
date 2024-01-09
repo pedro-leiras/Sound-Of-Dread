@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 9060b7626f3b4514a9e657c79ed8b864
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: cc4c1cf6b4c040e4ba318f76a6de24df
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 096da0a21236c5441a599911ab04ec27,
       type: 2}

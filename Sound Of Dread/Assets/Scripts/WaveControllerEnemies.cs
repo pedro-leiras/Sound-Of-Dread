@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,7 +22,8 @@ public class WaveControllerEnemies : MonoBehaviour
     {
         bool playerCanSee = player.GetPlayerCanSee(transform);
         bool behindWall = IsBehindWall();
-        if (!playerCanSee || behindWall) return;
+        bool behindFloor = IsBehindFloor();
+        if (playerCanSee == false || behindWall || behindFloor) return;
 
         GameObject waveEffect = Instantiate(WaveEffectPrefab, transform.position, Quaternion.identity) as GameObject;
         ParticleSystem waveEffectPS = waveEffect.transform.GetChild(0).GetComponent<ParticleSystem>();
@@ -50,6 +52,19 @@ public class WaveControllerEnemies : MonoBehaviour
         if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit)
             && Vector3.Distance(agent.transform.position, player.transform.position) >= agent.agentView)
             if (hit.collider.CompareTag("Wall")) return true;
+        return false;
+    }
+
+    private bool IsBehindFloor()
+    {
+        /*
+            implementa basicamente um raycast/linha de visao para ver se o inimigo consegue ver o jogador
+            retorna verdadeiro se o jogador estiver atras da parede ou falso se o contrario
+        */
+        RaycastHit hit;
+        if (Physics.Raycast(agent.transform.position, player.transform.position - agent.transform.position, out hit)
+            && Vector3.Distance(agent.transform.position, player.transform.position) >= agent.agentView)
+            if (hit.collider.CompareTag("Wood Floor")) return true;
         return false;
     }
 }

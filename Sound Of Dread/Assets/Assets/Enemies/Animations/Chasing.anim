@@ -77261,7 +77261,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 1.0333333
-    functionName: PlaySteps
+    functionName: SpawnFootSteepsWaveEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -77275,7 +77275,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 2.3666666
-    functionName: PlaySteps
+    functionName: SpawnFootSteepsWaveEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -77289,7 +77289,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 4.0333333
-    functionName: PlaySteps
+    functionName: SpawnFootSteepsWaveEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

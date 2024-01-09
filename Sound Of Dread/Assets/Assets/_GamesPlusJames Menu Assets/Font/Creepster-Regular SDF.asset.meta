@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Sound Of Dread/Assets/Assets/_GamesPlusJames Menu Assets/Font/Creepster-Regular SDF.asset.meta
 guid: 03c160b028083584cbb858291ef6fac5
 NativeFormatImporter:
+========
+guid: f47616cdf9bc48e478874a158c0d90f0
+PrefabImporter:
+>>>>>>>> 59944a63b3870c5383095a84f1ccd53ef334f192:Sound Of Dread/Assets/Assets/_GamesPlusJames Menu Assets/Prefabs/PauseMenu.prefab.meta
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 

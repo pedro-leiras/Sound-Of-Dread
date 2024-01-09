@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Sound Of Dread/Assets/Scenes/Main Menu.meta
 guid: a30c3bed801ac73499819e1c34aa7904
+========
+guid: e92e85a1842d6a647bdb8b849408a97e
+>>>>>>>> 59944a63b3870c5383095a84f1ccd53ef334f192:Sound Of Dread/Assets/Audios/Explosion.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

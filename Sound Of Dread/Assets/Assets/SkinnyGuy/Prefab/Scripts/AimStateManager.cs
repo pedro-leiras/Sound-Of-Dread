@@ -33,7 +33,8 @@ public class AimStateManager : MonoBehaviour
 
     private void LateUpdate()
     {
-
+        if (!PauseMenu.isPaused)
+        {
             var Mouse_X = _inputManager.Look.x;
             var Mouse_Y = _inputManager.Look.y;
             Camera.position = CameraRoot.position;
@@ -54,6 +55,7 @@ public class AimStateManager : MonoBehaviour
             {
                 Camera.localRotation = Quaternion.Euler(lastXRotation, 0, 0);
             }
+        }
         
     }
 }

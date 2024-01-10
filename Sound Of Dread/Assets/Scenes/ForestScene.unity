@@ -9095,6 +9095,30 @@ PrefabInstance:
       propertyPath: m_RendererIndex
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6666665
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0038418924
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.7404823
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11712648
+      objectReference: {fileID: 0}
+    - target: {fileID: 768143987, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.000000014901161
+      objectReference: {fileID: 0}
     - target: {fileID: 1829427755, guid: e852a3b49e8745b42bed895f21d9dc79, type: 3}
       propertyPath: FSAudioSource
       value: 

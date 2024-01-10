@@ -68,7 +68,7 @@ public class SoundPuzzle : MonoBehaviour
 
                         if (playerInputSequence.Count == correctSequence.Length)
                         {
-                            //Debug.Log("You win!");
+                            Debug.Log("You win!");
                             Level4Finish = true;
                             playerInputSequence.Clear();
                             UnlockDoor();
@@ -76,7 +76,7 @@ public class SoundPuzzle : MonoBehaviour
                     }
                     else
                     {
-                        //Debug.Log("You failed!");
+                        Debug.Log("You failed!");
                         playerInputSequence.Clear();
                     }
                 }

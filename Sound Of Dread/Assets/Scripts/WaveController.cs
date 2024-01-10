@@ -14,11 +14,11 @@ public class WaveController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
+        /*if (Input.GetKeyDown(KeyCode.Space)) //apenas para testes
         {
             if(gameObject.tag == "Player")
                 SpawnWaveEffect(transform.position);
-        }
+        }*/
     }
 
     public void SpawnWaveEffect(Vector3 spawnPos)

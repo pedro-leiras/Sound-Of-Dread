@@ -22,12 +22,12 @@ public class LeverPuzzle : MonoBehaviour
         if (!Level1Finish)
         {
             bool allLeversInState2 = true;
-
             //Check if all levers are opened
             foreach (LeverController lever in levers)
             {
                 if (lever.LeverID == 0 && lever.leverState == 2)
                 {
+                    lever.lockStatus = 1;
                     foreach (DoorController door in doors)
                     {
                         if (door.doorID == 103)
@@ -38,9 +38,10 @@ public class LeverPuzzle : MonoBehaviour
                 }
                 if (lever.LeverID == 1 && lever.leverState == 2)
                 {
-                    foreach(DoorController door in doors)
+                    lever.lockStatus = 1;
+                    foreach (DoorController door in doors)
                     {
-                        if(door.doorID == 1)
+                        if (door.doorID == 1)
                         {
                             door.lockStatus = 0;
                         }
@@ -48,6 +49,7 @@ public class LeverPuzzle : MonoBehaviour
                 }
                 if (lever.LeverID == 2 && lever.leverState == 2)
                 {
+                    lever.lockStatus = 1;
                     foreach (DoorController door in doors)
                     {
                         if (door.doorID == 2)
@@ -62,6 +64,7 @@ public class LeverPuzzle : MonoBehaviour
                 }
                 if (lever.LeverID == 3 && lever.leverState == 2)
                 {
+                    lever.lockStatus = 1;
                     foreach (DoorController door in doors)
                     {
                         if (door.doorID == 3)
@@ -72,6 +75,7 @@ public class LeverPuzzle : MonoBehaviour
                 }
                 if (lever.LeverID == 4 && lever.leverState == 2)
                 {
+                    lever.lockStatus = 1;
                     foreach (DoorController door in doors)
                     {
                         if (door.doorID == 4)
